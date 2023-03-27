@@ -11,7 +11,7 @@ public class main {
 	private static int cont = 0;
 	
 	
-	public static void main(String[] arg) {
+	public static void main(String[] arg) throws IOException {
 		
 		
 		ControlArchivos.guardar(listUsuarios);
@@ -52,8 +52,6 @@ public class main {
 				}
 			}			
 		}
-		
-		ControlArchivos.guardar(listaUsuarios);
 		
 		
 		

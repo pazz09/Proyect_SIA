@@ -12,6 +12,7 @@ public class ControlArchivos {
 		
 		try(BufferedWriter escritor = new BufferedWriter(new FileWriter("usuarios.csv"))){
 			escritor.write("hola");
+			escritor.close();
 		}
 		
 	}
