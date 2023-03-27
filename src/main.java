@@ -1,23 +1,22 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
 public class main {
 	
 	private static String[][] usuarios = new String[30][10];
-	//30 max de usuarios
-    //5 sig que se guarda el nombre, contraseña, edad, profesión, ubicación
+	private static List<Usuario> listUsuarios = new ArrayList();
 	private static int cont = 0;
-	/*
-	private static String csvProfe = "profesiones.csv";
-	private static String separador = ",";
-	private static String linea;
-	*/
 	
 	
 	public static void main(String[] arg) {
+		
+		
+		ControlArchivos.guardar(listUsuarios);
+		
+		
 		
 		Scanner input = new Scanner(System.in);
 		String nombre;
@@ -53,11 +52,16 @@ public class main {
 				}
 			}			
 		}
+		
+		ControlArchivos.guardar(listaUsuarios);
+		
+		
+		
 	}
 	
 	private static boolean existe(String nombre, String clave) {
 		for(int i = 0; i < cont; i++) {
-			if(usuarios[i][0].equals(nombre)&& usuarios[i][1].equals(clave)) {
+			if(listUsuarios.get(i).getNombre().equals(nombre)&& listUsuarios.get(i).getClave().equals(clave)) {
 				return true;
 			}
 		}
@@ -66,21 +70,24 @@ public class main {
 	
 	private static void crear(String nombre, String clave, Scanner input) {
 		
+		Usuario auxUsuario = new Usuario();
 		String profesion = "";
 		
-		usuarios[cont][0] = nombre;
-		usuarios[cont][1] = clave;
-		
 		System.out.println("Ingrese nombre de usuario:");
-		usuarios[cont][2] = input.nextLine();
+		auxUsuario.setNombre(input.nextLine());
 		System.out.println("Ingrese su edad:");
-		usuarios[cont][3] = input.nextLine();
+		auxUsuario.setEdad(Integer.parseInt(input.nextLine()));
 		System.out.println("Indique la Región donde vive: (seleccione el número correspondiente)");
-		System.out.println("1. Region Tarapaca");
-		System.out.println("2. Region Metropolitana");
-		System.out.println("3. Region Valparaiso");
-		System.out.println("4. Region Biobio");
-		System.out.println("5. Region de Magallanes");
+		
+		for(String region : Ubicacion.getListaRegiones()) {
+			System.out.println(region);
+		}
+		
+		
+		
+		
+		
+		
 		
 		usuarios[cont][4] = input.nextLine();
 		

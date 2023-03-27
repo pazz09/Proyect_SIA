@@ -1,13 +1,15 @@
 
-public class usuarios {
+public class Usuario {
 	private String nombre;
 	private int edad;
 	private String genero;
-	private String correo;
+	private String clave;
 	private String rut;
 	private int exp;
 	private String titulo;
 	private boolean posee_Titulo;
+	
+
 	
 	public void set_expt(int a) {
 		this.exp=a;
@@ -16,11 +18,11 @@ public class usuarios {
 	public int get_expt() {
 		return exp;
 	}
-	public void set_edad(int a) {
+	public void setEdad(int a) {
 		this.edad=a;
 	}
 	
-	public int get_edad() {
+	public int getEdad() {
 		return edad;
 	}
 	public String getNombre() {
@@ -37,11 +39,11 @@ public class usuarios {
 		this.genero = a;
 	}
 	
-	public String getcorreo() {
-		return correo;
+	public String getClave() {
+		return clave;
 	}
-	public void setcorreo(String a) {
-		this.correo = a;
+	public void setClave(String a) {
+		this.clave = a;
 	}
 	
 	public String getrut() {
