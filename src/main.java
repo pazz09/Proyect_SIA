@@ -19,7 +19,7 @@ public class main {
 		String clave;
 		boolean correcto = false;
 		String respuesta;
-		
+		Usuario a;
 		System.out.println("--> BOLSA DE TRABAJO ONLINE CHILENA <--");
 		System.out.println(" ");
 		System.out.println("INICIO DE SESIÓN");
@@ -40,7 +40,8 @@ public class main {
 				respuesta = input.nextLine();
 				
 				if (respuesta.equals("si")) {
-					crear(nombre, clave, input); //input es algo que lei para que le entre a la función info adicional
+					a=crear(nombre, clave, input); //input es algo que lei para que le entre a la función info adicional
+					listUsuarios.add(a);
 					ControlArchivos.guardar(listUsuarios);
 					
 					System.out.println("LISTO!, ya tienes una cuenta :)");
@@ -67,7 +68,7 @@ public class main {
 		return false;
 	}
 	
-	private static void crear(String nombre, String clave, Scanner input) {
+	private static Usuario crear(String nombre, String clave, Scanner input) {
 		
 		Usuario auxUsuario = new Usuario();
 		
@@ -92,7 +93,7 @@ public class main {
         cont++;
 		
 		
-		
+		return auxUsuario;
 	}
 	
 	
