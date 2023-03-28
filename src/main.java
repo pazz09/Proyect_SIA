@@ -9,7 +9,7 @@ public class main {
 	private static String[][] usuarios = new String[30][10];
 	private static List<Usuario> listUsuarios = new ArrayList();
 	private static int cont = 0;
-	
+	private static List<Trabajo> listTrabajos = new ArrayList();
 	
 	public static void main(String[] arg) throws IOException {
 		
@@ -55,6 +55,8 @@ public class main {
 		System.out.println("Bienvenido a la BOLSA DE TRABAJO ONLINE\n");
 		System.out.println("Este programa te AUTOSELECCIONARA los trabajos que coincidan con tus descripciones y estudios");
 		System.out.println("-----> MENU <-----");
+		System.out.println("1-Mostrar trabajos recomendados");
+		
 		
 		
 	}
