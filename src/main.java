@@ -71,7 +71,7 @@ public class main {
 	private static Usuario crear(String nombre, String clave, Scanner input) {
 		
 		Usuario auxUsuario = new Usuario();
-		
+		String a;
 		System.out.println("Ingrese nombre de usuario:");
 		auxUsuario.setNombre(input.nextLine());
 		System.out.println("Ingrese su edad:");
@@ -82,9 +82,20 @@ public class main {
 			System.out.println(region);
 		}
 		auxUsuario.setUbicacion(Integer.parseInt(input.nextLine()));
-		
-		System.out.println("Ingrese su profesión:");
-		auxUsuario.setProfesion(input.nextLine());
+		System.out.println("¿Posee un titulo Profesional?: (si/no)");
+		a=input.nextLine();
+		if (a.contentEquals("si")) {
+			auxUsuario.setposee(true);
+		}
+		else auxUsuario.setposee(false);
+		if(auxUsuario.getposee()==true) {
+			System.out.println("Ingrese su profesión:");
+			auxUsuario.setProfesion(input.nextLine());
+		}
+		else {
+			System.out.println("¿En que area posee experiencia laboral?:");
+			auxUsuario.setProfesion(input.nextLine());
+		}
         
         System.out.println("Ingrese una contraseña:");
         auxUsuario.setClave(input.nextLine());

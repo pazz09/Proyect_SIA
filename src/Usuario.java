@@ -8,6 +8,7 @@ public class Usuario {
 	private int ubicacion;
 	private String profesion;
 	private boolean posee_Titulo;
+	private String exp;
 	
 
 	
@@ -31,7 +32,12 @@ public class Usuario {
 	public void setNombre(String a) {
 		this.nombre = a;
 	}
-	
+	public String getExp() {
+		return exp;
+	}
+	public void setExp(String a) {
+		this.exp = a;
+	}
 	public String getGenero() {
 		return genero;
 	}
