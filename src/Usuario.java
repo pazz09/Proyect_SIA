@@ -5,18 +5,18 @@ public class Usuario {
 	private String genero;
 	private String clave;
 	private String rut;
-	private int exp;
-	private String titulo;
+	private int ubicacion;
+	private String profesion;
 	private boolean posee_Titulo;
 	
 
 	
-	public void set_expt(int a) {
-		this.exp=a;
+	public void setUbicacion(int a) {
+		this.ubicacion=a;
 	}
 	
-	public int get_expt() {
-		return exp;
+	public int getUbicacion() {
+		return ubicacion;
 	}
 	public void setEdad(int a) {
 		this.edad=a;
@@ -46,18 +46,18 @@ public class Usuario {
 		this.clave = a;
 	}
 	
-	public String getrut() {
+	public String getRut() {
 		return rut;
 	}
-	public void setrut(String a) {
+	public void setRut(String a) {
 		this.rut = a;
 	}
 	
-	public String getTitulo() {
-		return titulo;
+	public String getProfesion() {
+		return profesion;
 	}
-	public void setTitulo(String a) {
-		this.titulo = a;
+	public void setProfesion(String a) {
+		this.profesion = a;
 	}
 	public boolean getposee() {
 		return posee_Titulo;

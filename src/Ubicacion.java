@@ -9,7 +9,14 @@ public class Ubicacion {
 			                                 "5. Región de Coquimbo",
 			                                 "6. Región de Valparaíso",
 			                                 "7. Región Metropolitana",
-			                                 "8. Región "};
+			                                 "8. Región del libertador Bernando O'Higgins",
+			                                 "9. Región del Maule",
+			                                 "10. Región del Bío Bío",
+			                                 "11. Región de la Araucanía",
+			                                 "12. Región de los Ríos",
+			                                 "13. Región de los Lagos",
+			                                 "14. Región de Aisén",
+			                                 "15. Región de Magallanes"};
 
 	public static  String[] getListaRegiones() {
 		return listaRegiones;

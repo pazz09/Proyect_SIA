@@ -14,10 +14,6 @@ public class main {
 	public static void main(String[] arg) throws IOException {
 		
 		
-		ControlArchivos.guardar(listUsuarios);
-		
-		
-		
 		Scanner input = new Scanner(System.in);
 		String nombre;
 		String clave;
@@ -45,6 +41,8 @@ public class main {
 				
 				if (respuesta.equals("si")) {
 					crear(nombre, clave, input); //input es algo que lei para que le entre a la función info adicional
+					ControlArchivos.guardar(listUsuarios);
+					
 					System.out.println("LISTO!, ya tienes una cuenta :)");
 					System.out.println(" ");
 					System.out.println("Vuelve a iniciar sesión");
@@ -53,6 +51,9 @@ public class main {
 			}			
 		}
 		
+		System.out.println("Bienvenido a la BOLSA DE TRABAJO ONLINE");
+		System.out.println("Este programa te AUTOSELECCIONARA los trabajos que coincidan con tus descripciones y estudios");
+		System.out.println("-----> MENU <-----");
 		
 		
 	}
@@ -69,7 +70,6 @@ public class main {
 	private static void crear(String nombre, String clave, Scanner input) {
 		
 		Usuario auxUsuario = new Usuario();
-		String profesion = "";
 		
 		System.out.println("Ingrese nombre de usuario:");
 		auxUsuario.setNombre(input.nextLine());
@@ -80,21 +80,13 @@ public class main {
 		for(String region : Ubicacion.getListaRegiones()) {
 			System.out.println(region);
 		}
-		
-		
-		
-		
-		
-		
-		
-		usuarios[cont][4] = input.nextLine();
+		auxUsuario.setUbicacion(Integer.parseInt(input.nextLine()));
 		
 		System.out.println("Ingrese su profesión:");
-        profesion = input.nextLine();
-        usuarios[cont][5] = profesion;
+		auxUsuario.setProfesion(input.nextLine());
         
         System.out.println("Ingrese una contraseña:");
-		usuarios[cont][6] = input.nextLine();
+        auxUsuario.setClave(input.nextLine());
 		
         
         cont++;
