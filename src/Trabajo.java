@@ -4,6 +4,7 @@ import java.util.List;
 public class Trabajo {
 	private String nombre;
 	private boolean titulo;
+	private String T_nesesario;
 	private boolean exp;
 	private String ubicacion;
 	private String area;
@@ -16,13 +17,19 @@ public class Trabajo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public boolean isTitulo() {
+	public String getT_nesesario() {
+		return T_nesesario;
+	}
+	public void setT_nesesario(String nombre) {
+		this.T_nesesario = nombre;
+	}
+	public boolean getTitulo() {
 		return titulo;
 	}
 	public void setTitulo(boolean titulo) {
 		this.titulo = titulo;
 	}
-	public boolean isExp() {
+	public boolean getExp() {
 		return exp;
 	}
 	public void setExp(boolean exp) {

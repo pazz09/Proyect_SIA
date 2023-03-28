@@ -41,8 +41,7 @@ public class main {
 				respuesta = input.nextLine();
 				
 				if (respuesta.equals("si")) {
-					a=crear(nombre, clave, input); //input es algo que lei para que le entre a la función info adicional
-					listUsuarios.add(a);
+					crear(nombre, clave, input,listUsuarios); //input es algo que lei para que le entre a la función info adicional
 					ControlArchivos.guardar(listUsuarios);
 					
 					System.out.println("LISTO!, ya tienes una cuenta :)");
@@ -69,7 +68,7 @@ public class main {
 			}
 			
 			if (ingresado == 2) {
-				
+				crear(input,listTrabajos);
 			}
 		}
 		
@@ -85,7 +84,7 @@ public class main {
 		return false;
 	}
 	
-	private static Usuario crear(String nombre, String clave, Scanner input) {
+	private static void crear(String nombre, String clave, Scanner input, List aux) {
 		
 		Usuario auxUsuario = new Usuario();
 		String a;
@@ -119,13 +118,53 @@ public class main {
 		
         
         cont++;
+		aux.add(auxUsuario);
 		
 		
-		return auxUsuario;
 	}
 	
-	private static void crear(Trabajo trabajo,String nombre, boolean titulo) {
-		return ;
+private static void crear(Scanner input, List aux) {
+		
+		Trabajo auxUsuario = new Trabajo();
+		String a;
+		System.out.println("Ingrese nombre de Trabajo:");
+		auxUsuario.setNombre(input.nextLine());
+		System.out.println("Ingrese el area de rubro:");
+		auxUsuario.setArea((input.nextLine()));
+		System.out.println("Indique la Región donde vive: (seleccione el número correspondiente)");
+		
+		for(String region : Ubicacion.getListaRegiones()) {
+			System.out.println(region);
+		}
+		//auxUsuario.setUbicacion(Integer.parseInt(input.nextLine()));
+		System.out.println("¿Requiere un  titulo Profesional?: (si/no)");
+		a=input.nextLine();
+		if (a.contentEquals("si")) {
+			auxUsuario.setTitulo(true);
+		}
+		else auxUsuario.setTitulo(false);
+		if(auxUsuario.getTitulo()==true) {
+			System.out.println("Ingrese titulo nesesario:");
+			auxUsuario.setT_nesesario(input.nextLine());
+		}
+		else {
+			auxUsuario.setT_nesesario(null);
+		}
+		System.out.println("¿Requiere experiencia previa?: (si/no)");
+		a=input.nextLine();
+		if (a.contentEquals("si")) {
+			auxUsuario.setExp(true);
+		}
+		else auxUsuario.setExp(false);
+		
+        System.out.println("Ingrese el horario laboral:");
+        auxUsuario.setHorario(input.nextLine());
+		
+        
+        cont++;
+		aux.add(auxUsuario);
+		
+		
 	}
 	
 	
