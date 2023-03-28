@@ -11,15 +11,16 @@ public class main {
 	private static int cont = 0;
 	private static List<Trabajo> listTrabajos = new ArrayList();
 	
-	public static void main(String[] arg) throws IOException {
+	public static void main(String[] arg) throws IOException{
 		
-		
+		int ingresado; // Variable que se va modificando para la visualizacion del menu
 		Scanner input = new Scanner(System.in);
 		String nombre;
 		String clave;
 		boolean correcto = false;
 		String respuesta;
 		Usuario a;
+		Trabajo trabajo;
 		System.out.println("--> BOLSA DE TRABAJO ONLINE CHILENA <--");
 		System.out.println(" ");
 		System.out.println("INICIO DE SESIÓN");
@@ -54,11 +55,25 @@ public class main {
 		
 		System.out.println("Bienvenido a la BOLSA DE TRABAJO ONLINE\n");
 		System.out.println("Este programa te AUTOSELECCIONARA los trabajos que coincidan con tus descripciones y estudios");
-		System.out.println("-----> MENU <-----");
-		System.out.println("1-Mostrar trabajos recomendados");
+		while (true) {
+			System.out.println("1. Buscar Trabajo");
+			System.out.println("2. Publicar Trabajo");
+			ingresado = Integer.parseInt(input.nextLine());
+			
+			if (ingresado == 1) {
+				System.out.println("1. Mostrar todos los trabajos");
+				System.out.println("2. Mostrar trabajos recomendados");
+				System.out.println("3. Mostrar trabajos a los que postulaste");
+				System.out.println("4. Mostrar trabajos cercanos");
+				
+			}
+			
+			if (ingresado == 2) {
+				
+			}
+		}
 		
-		
-		
+
 	}
 	
 	private static boolean existe(String nombre, String clave) {
@@ -107,6 +122,10 @@ public class main {
 		
 		
 		return auxUsuario;
+	}
+	
+	private static void crear(Trabajo trabajo,String nombre, boolean titulo) {
+		return ;
 	}
 	
 	
