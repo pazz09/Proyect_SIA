@@ -52,7 +52,7 @@ public class main {
 			}			
 		}
 		
-		System.out.println("Bienvenido a la BOLSA DE TRABAJO ONLINE");
+		System.out.println("Bienvenido a la BOLSA DE TRABAJO ONLINE\n");
 		System.out.println("Este programa te AUTOSELECCIONARA los trabajos que coincidan con tus descripciones y estudios");
 		System.out.println("-----> MENU <-----");
 		
