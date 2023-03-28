@@ -65,6 +65,10 @@ public class main {
 				System.out.println("3. Mostrar trabajos a los que postulaste");
 				System.out.println("4. Mostrar trabajos cercanos");
 				
+				if (ingresado == 1) {
+					
+				}
+				
 			}
 			
 			if (ingresado == 2) {
@@ -83,7 +87,7 @@ public class main {
 		}
 		return false;
 	}
-	
+	// Crea Usuario
 	private static void crear(String nombre, String clave, Scanner input, List aux) {
 		
 		Usuario auxUsuario = new Usuario();
@@ -122,9 +126,9 @@ public class main {
 		
 		
 	}
-	
-private static void crear(Scanner input, List aux) {
-		
+// Crea Trabajo
+	private static void crear(Scanner input, List aux) {
+			
 		Trabajo auxUsuario = new Trabajo();
 		String a;
 		System.out.println("Ingrese nombre de Trabajo:");
@@ -163,7 +167,7 @@ private static void crear(Scanner input, List aux) {
         
         cont++;
 		aux.add(auxUsuario);
-		
+			
 		
 	}
 	

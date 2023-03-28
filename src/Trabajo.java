@@ -64,4 +64,16 @@ public class Trabajo {
 			System.out.println(this.listPostulantes.get(i).getNombre()+"\n");
 		}
 	}
+	
+	public void mostrarTrabajos(){
+		System.out.println(this.getNombre());
+		System.out.println(this.getTitulo());
+		System.out.println(this.getT_nesesario());
+		System.out.println(this.getExp());
+		System.out.println(this.getUbicacion());
+		System.out.println(this.getArea());
+		System.out.println(this.getHorario());
+	}
+	
+	
 }
