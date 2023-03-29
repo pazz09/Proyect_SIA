@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,8 +11,7 @@ public class main {
 	private static String[][] usuarios = new String[30][10];
 	private static List<Usuario> listUsuarios = new ArrayList();
 	private static int cont = 0;
-	private static List<Trabajo> listTrabajos = new ArrayList();
-	
+	private static Map<Trabajo, String> mapTrabajos = new HashMap<Trabajo, String>();
 	public static void main(String[] arg) throws IOException{
 		
 		int ingresado; // Variable que se va modificando para la visualizacion del menu
@@ -64,15 +65,19 @@ public class main {
 				System.out.println("2. Mostrar trabajos recomendados");
 				System.out.println("3. Mostrar trabajos a los que postulaste");
 				System.out.println("4. Mostrar trabajos cercanos");
-				
+				ingresado = Integer.parseInt(input.nextLine());
 				if (ingresado == 1) {
 					
+					for (Map.Entry<Trabajo, String> entry : mapTrabajos.entrySet()) {
+					    
+					}
+					;
 				}
 				
 			}
 			
 			if (ingresado == 2) {
-				crear(input,listTrabajos);
+				crear(input,mapTrabajos);
 			}
 		}
 		
@@ -127,12 +132,14 @@ public class main {
 		
 	}
 // Crea Trabajo
-	private static void crear(Scanner input, List aux) {
+	private static void crear(Scanner input, Map aux) {
 			
 		Trabajo auxUsuario = new Trabajo();
 		String a;
+		String key;
 		System.out.println("Ingrese nombre de Trabajo:");
-		auxUsuario.setNombre(input.nextLine());
+		key=input.nextLine();
+		auxUsuario.setNombre(key);
 		System.out.println("Ingrese el area de rubro:");
 		auxUsuario.setArea((input.nextLine()));
 		System.out.println("Indique la Región donde vive: (seleccione el número correspondiente)");
@@ -166,7 +173,7 @@ public class main {
 		
         
         cont++;
-		aux.add(auxUsuario);
+		aux.put(auxUsuario,key);
 			
 		
 	}

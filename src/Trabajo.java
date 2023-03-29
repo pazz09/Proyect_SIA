@@ -72,7 +72,7 @@ public class Trabajo {
 		System.out.println(this.getExp());
 		System.out.println(this.getUbicacion());
 		System.out.println(this.getArea());
-		System.out.println(this.getHorario());
+		System.out.println(this.getHorario()+"\n");
 	}
 	
 	
