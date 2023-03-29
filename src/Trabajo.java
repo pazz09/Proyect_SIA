@@ -2,57 +2,79 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Trabajo {
+	
 	private String nombre;
-	private boolean titulo;
-	private String T_nesesario;
-	private boolean exp;
-	private String ubicacion;
-	private String area;
+	private String region;
+	private int sueldo;
 	private String horario;
-	private static List<Usuario> listPostulantes = new ArrayList();
+	private int vacantes;
+	private int exp;
+	private String titulo;
+	
+	
+	
+	
 	
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getT_nesesario() {
-		return T_nesesario;
+
+	public String getRegion() {
+		return region;
 	}
-	public void setT_nesesario(String nombre) {
-		this.T_nesesario = nombre;
+
+	public void setRegion(String region) {
+		this.region = region;
 	}
-	public boolean getTitulo() {
-		return titulo;
+
+	public int getSueldo() {
+		return sueldo;
 	}
-	public void setTitulo(boolean titulo) {
-		this.titulo = titulo;
+
+	public void setSueldo(int sueldo) {
+		this.sueldo = sueldo;
 	}
-	public boolean getExp() {
-		return exp;
-	}
-	public void setExp(boolean exp) {
-		this.exp = exp;
-	}
-	public String getUbicacion() {
-		return ubicacion;
-	}
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
-	}
-	public String getArea() {
-		return area;
-	}
-	public void setArea(String area) {
-		this.area = area;
-	}
+
 	public String getHorario() {
 		return horario;
 	}
+
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
+
+	public int getVacantes() {
+		return vacantes;
+	}
+
+	public void setVacantes(int vacantes) {
+		this.vacantes = vacantes;
+	}
+
+	public int getExp() {
+		return exp;
+	}
+
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+
+	private static List<Usuario> listPostulantes = new ArrayList();
+	
+
 	
 	
 	public void setPostulante(Usuario a) {
@@ -64,16 +86,10 @@ public class Trabajo {
 			System.out.println(this.listPostulantes.get(i).getNombre()+"\n");
 		}
 	}
+
 	
-	public void mostrarTrabajos(){
-		System.out.println(this.getNombre());
-		System.out.println(this.getTitulo());
-		System.out.println(this.getT_nesesario());
-		System.out.println(this.getExp());
-		System.out.println(this.getUbicacion());
-		System.out.println(this.getArea());
-		System.out.println(this.getHorario()+"\n");
-	}
+	
+	
 	
 	
 }

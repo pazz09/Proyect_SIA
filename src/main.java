@@ -11,8 +11,13 @@ public class main {
 	private static String[][] usuarios = new String[30][10];
 	private static List<Usuario> listUsuarios = new ArrayList();
 	private static int cont = 0;
-	private static Map<Trabajo, String> mapTrabajos = new HashMap<Trabajo, String>();
+	private static HashMap<String, Trabajo> mapaTrabajos = new HashMap<String, Trabajo>();
+	
+	
 	public static void main(String[] arg) throws IOException{
+
+		
+		
 		
 		int ingresado; // Variable que se va modificando para la visualizacion del menu
 		Scanner input = new Scanner(System.in);
@@ -22,6 +27,15 @@ public class main {
 		String respuesta;
 		Usuario a;
 		Trabajo trabajo;
+		
+		// Seccion Lectura CSV
+		CSV archivo = new CSV();
+		archivo.leerArchivo("C:\\Users\\lukio\\Documents\\GitHub\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
+		// Fin Lectura CSV
+		
+		
+		
+		
 		System.out.println("--> BOLSA DE TRABAJO ONLINE CHILENA <--");
 		System.out.println(" ");
 		System.out.println("INICIO DE SESIÓN");
@@ -68,7 +82,7 @@ public class main {
 				ingresado = Integer.parseInt(input.nextLine());
 				if (ingresado == 1) {
 					
-					for (Map.Entry<Trabajo, String> entry : mapTrabajos.entrySet()) {
+					for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
 					    
 					}
 					;
@@ -77,7 +91,7 @@ public class main {
 			}
 			
 			if (ingresado == 2) {
-				crear(input,mapTrabajos);
+				crear(input,mapaTrabajos);
 			}
 		}
 		
@@ -132,51 +146,43 @@ public class main {
 		
 	}
 // Crea Trabajo
-	private static void crear(Scanner input, Map aux) {
-			
-		Trabajo auxUsuario = new Trabajo();
-		String a;
-		String key;
-		System.out.println("Ingrese nombre de Trabajo:");
-		key=input.nextLine();
-		auxUsuario.setNombre(key);
-		System.out.println("Ingrese el area de rubro:");
-		auxUsuario.setArea((input.nextLine()));
-		System.out.println("Indique la Región donde vive: (seleccione el número correspondiente)");
-		
-		for(String region : Ubicacion.getListaRegiones()) {
-			System.out.println(region);
-		}
-		//auxUsuario.setUbicacion(Integer.parseInt(input.nextLine()));
-		System.out.println("¿Requiere un  titulo Profesional?: (si/no)");
-		a=input.nextLine();
-		if (a.contentEquals("si")) {
-			auxUsuario.setTitulo(true);
-		}
-		else auxUsuario.setTitulo(false);
-		if(auxUsuario.getTitulo()==true) {
-			System.out.println("Ingrese titulo nesesario:");
-			auxUsuario.setT_nesesario(input.nextLine());
-		}
-		else {
-			auxUsuario.setT_nesesario(null);
-		}
-		System.out.println("¿Requiere experiencia previa?: (si/no)");
-		a=input.nextLine();
-		if (a.contentEquals("si")) {
-			auxUsuario.setExp(true);
-		}
-		else auxUsuario.setExp(false);
-		
+	private static void crear(Scanner input, HashMap aux) {
+
+        Trabajo auxTrabajo = new Trabajo();
+        String a;
+        String key;
+        System.out.println("Ingrese nombre de Trabajo:");
+        key=input.nextLine();
+        auxTrabajo.setNombre(key);
+        System.out.println("Ingrese la ciudad donde se realizara el trabajo:");
+        auxTrabajo.setRegion((input.nextLine()));
+        System.out.println("¿Requiere un  titulo Profesional?: (si/no)");
+        a=input.nextLine();
+        if (a.contentEquals("si")) {
+            System.out.println("Ingrese titulo nesesario:");
+            auxTrabajo.setTitulo(input.nextLine());
+        }
+        else auxTrabajo.setTitulo(null);
+
+        System.out.println("¿Requiere experiencia previa?: (si/no)");
+        a=input.nextLine();
+        if (a.contentEquals("si")) {
+            System.out.println("Cantidad de experiencia requerida en años:");
+            auxTrabajo.setExp(Integer.parseInt(input.nextLine()));
+        }
+        else auxTrabajo.setExp(0);
+
         System.out.println("Ingrese el horario laboral:");
-        auxUsuario.setHorario(input.nextLine());
-		
-        
+        auxTrabajo.setHorario(input.nextLine());
+        System.out.println("Ingrese el sueldo a ofrecer:");
+        auxTrabajo.setSueldo(Integer.parseInt(input.nextLine()));
+        System.out.println("Ingrese el numero de vacantes:");
+        auxTrabajo.setSueldo(Integer.parseInt(input.nextLine()));
         cont++;
-		aux.put(auxUsuario,key);
-			
-		
-	}
+        aux.put(key,auxTrabajo);
+
+
+    }
 	
 	
 	
