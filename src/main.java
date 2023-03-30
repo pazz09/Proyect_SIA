@@ -30,7 +30,7 @@ public class main {
 		
 		// Seccion Lectura CSV
 		CSV archivo = new CSV();
-		archivo.leerArchivo("C:\\Users\\esteb\\Documents\\GitHub\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
+		archivo.leerArchivo("C:\\Users\\lukio\\Documents\\GitHub\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
 		// Fin Lectura CSV
 		
 		
@@ -89,7 +89,7 @@ public class main {
 					    entry.getValue().mostrarTrabajos();
 					    i++;
 					}
-					System.out.println("le gustaria postular a algun trabajo (si/no");
+					System.out.println("le gustaria postular a algun trabajo (si/no)");
 					if(input.nextLine().contentEquals("si")) {
 							String n=input.nextLine();
 							mapaTrabajos.get(n).setPostulante(buscado(nombre,listUsuarios));
