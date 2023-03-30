@@ -97,7 +97,15 @@ public class Trabajo {
 			System.out.println(this.listPostulantes.get(i).getNombre()+"\n");
 		}
 	}
-
+	
+	public void buscarPostulante(String n) {
+		for (int i=0;i<this.listPostulantes.size();i++) {
+			if(this.listPostulantes.get(i).getNombre().contentEquals(n)) {
+				System.out.println(this.nombre);
+			}
+		}
+		
+	}
 	
 	
 	

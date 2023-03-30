@@ -21,7 +21,7 @@ public class main {
 		
 		int ingresado; // Variable que se va modificando para la visualizacion del menu
 		Scanner input = new Scanner(System.in);
-		String nombre;
+		String nombre=null;
 		String clave;
 		boolean correcto = false;
 		String respuesta;
@@ -30,7 +30,7 @@ public class main {
 		
 		// Seccion Lectura CSV
 		CSV archivo = new CSV();
-		archivo.leerArchivo("C:\\Users\\antop\\eclipse-workspace\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
+		archivo.leerArchivo("C:\\Users\\esteb\\Documents\\GitHub\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
 		// Fin Lectura CSV
 		
 		
@@ -89,7 +89,13 @@ public class main {
 					    entry.getValue().mostrarTrabajos();
 					    i++;
 					}
-					System.out.println("¿A cual puesto de trabajo te gustaría postular? (Indica su número correspondiente) (OPCIÓN EN DESARROLLO)");
+					System.out.println("le gustaria postular a algun trabajo (si/no");
+					if(input.nextLine().contentEquals("si")) {
+							String n=input.nextLine();
+							mapaTrabajos.get(n).setPostulante(buscado(nombre,listUsuarios));
+						
+						
+					}
 					System.out.println("¿Te gustaría volver al menu principal? (si/no)");
 					respuesta = input.nextLine();
 					if (respuesta.equals("no")) {
@@ -105,7 +111,12 @@ public class main {
 					
 				}
 				if (ingresado == 3) {
-					System.out.println("OPCIÓN EN DESARROLLO");
+					System.out.println("OESTOS SON LOS TRABAJOS A LOS QUE HAS POSTULADO");
+					for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
+					    entry.getValue().buscarPostulante(nombre);
+			
+					}
+					
 				}
 				if (ingresado == 4) {
 					System.out.println("OPCIÓN EN DESARROLLO");
@@ -208,6 +219,16 @@ public class main {
     }
 	
 	
-	
+	private static Usuario buscado(String n, List<Usuario> listUsuarios ) {
+		Usuario a=null;
+		for (int i=0;i<listUsuarios.size();i++) {
+			if(listUsuarios.get(i).getNombre().contentEquals(n)) {
+				a=listUsuarios.get(i);
+				break;
+			}
+		}
+		
+		return a;
+	}
 	
 }
