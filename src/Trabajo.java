@@ -73,12 +73,12 @@ public class Trabajo {
 
 	public void mostrarTrabajos() {
 		System.out.println("Nombre: "+ this.getNombre());
-		System.out.println("Region: "+ this.getRegion());
-		System.out.println("Sueldo: "+ this.getSueldo());
-		System.out.println("Horarios: "+ this.getHorario());
+		System.out.println("Ubicación: "+ this.getRegion());
+		System.out.println("Sueldo base: "+ this.getSueldo());
+		System.out.println("Horario: "+ this.getHorario());
 		System.out.println("Vacantes: "+ this.getVacantes());
-		System.out.println("Experiencia Necesaria: "+ this.getExp());
-		System.out.println("Titulo "+ this.getTitulo());
+		System.out.println("Experiencia necesaria: "+ this.getExp()+" años");
+		System.out.println("Título "+ this.getTitulo());
 		System.out.println("");
 	}
 	

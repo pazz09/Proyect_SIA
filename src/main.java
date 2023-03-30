@@ -30,7 +30,7 @@ public class main {
 		
 		// Seccion Lectura CSV
 		CSV archivo = new CSV();
-		archivo.leerArchivo("C:\\Users\\lukio\\Documents\\GitHub\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
+		archivo.leerArchivo("C:\\Users\\antop\\eclipse-workspace\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
 		// Fin Lectura CSV
 		
 		
@@ -47,7 +47,7 @@ public class main {
 			clave = input.nextLine();
 			
 			if (existe(nombre, clave)) {
-				System.out.println("¡Bienvenido! "+ nombre);
+				System.out.println("HOLA "+ nombre);
 				correcto = true;
 			}
 			else {
@@ -67,35 +67,52 @@ public class main {
 			}			
 		}
 		
-		System.out.println("Bienvenido a la BOLSA DE TRABAJO ONLINE\n");
-		System.out.println("Este programa te AUTOSELECCIONARA los trabajos que coincidan con tus descripciones y estudios");
+		System.out.println("Bienvenid@ a la BOLSA DE TRABAJO ONLINE\n");
+		System.out.println("-----> MENU <-----");
 		while (true) {
-			System.out.println("1. Buscar Trabajo");
-			System.out.println("2. Publicar Trabajo");
+			System.out.println("1. Buscar Trabajo ------> (Postulante)");
+			System.out.println("2. Publicar Trabajo ----> (Empresa)");
 			ingresado = Integer.parseInt(input.nextLine());
 			
 			if (ingresado == 1) {
-				System.out.println("1. Mostrar todos los trabajos");
-				System.out.println("2. Mostrar trabajos recomendados");
-				System.out.println("3. Mostrar trabajos a los que postulaste");
-				System.out.println("4. Mostrar trabajos cercanos");
+				System.out.println("Indique la opción que le gustaría mostrar:");
+				System.out.println("1. Trabajos disponibles");
+				System.out.println("2. Trabajos recomendados");
+				System.out.println("3. Trabajos a los que postulaste");
+				System.out.println("4. Trabajos cercanos a tu ubicación");
 				ingresado = Integer.parseInt(input.nextLine());
 				
-				
 				if (ingresado == 1) {
-					
-					
 					int i = 1;
 					for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
-						System.out.println("Trbajo n° "+i+":");
+						System.out.println("Trabajo n° "+i+":");
 					    entry.getValue().mostrarTrabajos();
 					    i++;
 					}
-					;
+					System.out.println("¿A cual puesto de trabajo te gustaría postular? (Indica su número correspondiente) (OPCIÓN EN DESARROLLO)");
+					System.out.println("¿Te gustaría volver al menu principal? (si/no)");
+					respuesta = input.nextLine();
+					if (respuesta.equals("no")) {
+						System.out.println("ADIOS!!");
+						break;
+					}
+					
+				}
+				if (ingresado == 2) {
+					System.out.println("El programa autoseleciono los puestos de trabajos que coinciden con tus estudios y los datos que nos proporcionaste: ");
+					System.out.println("OPCIÓN EN DESARROLLO");
+					break;
+					
+				}
+				if (ingresado == 3) {
+					System.out.println("OPCIÓN EN DESARROLLO");
+				}
+				if (ingresado == 4) {
+					System.out.println("OPCIÓN EN DESARROLLO");
 				}
 				
+				
 			}
-			
 			if (ingresado == 2) {
 				crear(input,mapaTrabajos);
 			}
@@ -157,12 +174,12 @@ public class main {
         Trabajo auxTrabajo = new Trabajo();
         String a;
         String key;
-        System.out.println("Ingrese nombre de Trabajo:");
+        System.out.println("Indique el nombre del puesto de trabajo a solicitar:");
         key=input.nextLine();
         auxTrabajo.setNombre(key);
         System.out.println("Ingrese la ciudad donde se realizara el trabajo:");
         auxTrabajo.setRegion((input.nextLine()));
-        System.out.println("¿Requiere un  titulo Profesional?: (si/no)");
+        System.out.println("¿Requiere un  título Profesional?: (si/no)");
         a=input.nextLine();
         if (a.contentEquals("si")) {
             System.out.println("Ingrese titulo nesesario:");
@@ -180,9 +197,9 @@ public class main {
 
         System.out.println("Ingrese el horario laboral:");
         auxTrabajo.setHorario(input.nextLine());
-        System.out.println("Ingrese el sueldo a ofrecer:");
+        System.out.println("Ingrese el sueldo base a ofrecer:");
         auxTrabajo.setSueldo(Integer.parseInt(input.nextLine()));
-        System.out.println("Ingrese el numero de vacantes:");
+        System.out.println("Ingrese el número de vacantes:");
         auxTrabajo.setSueldo(Integer.parseInt(input.nextLine()));
         cont++;
         aux.put(key,auxTrabajo);

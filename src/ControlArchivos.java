@@ -11,7 +11,7 @@ public class ControlArchivos {
 	public static void guardar(List<Usuario> usuarios ) throws IOException {
 		
 		try(BufferedWriter escritor = new BufferedWriter(new FileWriter("usuarios.csv"))){
-			escritor.write("hola");
+			escritor.write("");
 			escritor.close();
 		}
 		
