@@ -93,7 +93,7 @@ public class main {
 					if(input.nextLine().contentEquals("si")) {
 							String n=input.nextLine();
 							mapaTrabajos.get(n).setPostulante(buscado(nombre,listUsuarios));
-						
+							mapaTrabajos.get(n).Mostrar_postulantes();
 						
 					}
 					System.out.println("¿Te gustaría volver al menu principal? (si/no)");

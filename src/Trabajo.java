@@ -10,7 +10,7 @@ public class Trabajo {
 	private int vacantes;
 	private int exp;
 	private String titulo;
-	
+	private List<Usuario> listPostulantes = new ArrayList();
 	
 	
 	
@@ -81,13 +81,6 @@ public class Trabajo {
 		System.out.println("Título "+ this.getTitulo());
 		System.out.println("");
 	}
-	
-	
-	private static List<Usuario> listPostulantes = new ArrayList();
-	
-	
-	
-	
 	public void setPostulante(Usuario a) {
 		this.listPostulantes.add(a);
 	}
