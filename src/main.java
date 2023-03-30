@@ -80,10 +80,16 @@ public class main {
 				System.out.println("3. Mostrar trabajos a los que postulaste");
 				System.out.println("4. Mostrar trabajos cercanos");
 				ingresado = Integer.parseInt(input.nextLine());
+				
+				
 				if (ingresado == 1) {
 					
+					
+					int i = 1;
 					for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
-					    
+						System.out.println("Trbajo n° "+i+":");
+					    entry.getValue().mostrarTrabajos();
+					    i++;
 					}
 					;
 				}

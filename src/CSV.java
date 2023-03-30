@@ -49,10 +49,11 @@ public class CSV {
 		obj.setTitulo(partes[6]);
 		mapaTrabajos.put(obj.getNombre(), obj);
 		
+		/*
 		for(int i=0; i<partes.length;i++) {
 			System.out.println(partes[i]);
 		}
-		
+		*/
 		
 		
 	}

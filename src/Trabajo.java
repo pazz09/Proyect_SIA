@@ -71,10 +71,21 @@ public class Trabajo {
 		this.titulo = titulo;
 	}
 
-
+	public void mostrarTrabajos() {
+		System.out.println("Nombre: "+ this.getNombre());
+		System.out.println("Region: "+ this.getRegion());
+		System.out.println("Sueldo: "+ this.getSueldo());
+		System.out.println("Horarios: "+ this.getHorario());
+		System.out.println("Vacantes: "+ this.getVacantes());
+		System.out.println("Experiencia Necesaria: "+ this.getExp());
+		System.out.println("Titulo "+ this.getTitulo());
+		System.out.println("");
+	}
+	
+	
 	private static List<Usuario> listPostulantes = new ArrayList();
 	
-
+	
 	
 	
 	public void setPostulante(Usuario a) {
