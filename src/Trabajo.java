@@ -83,12 +83,15 @@ public class Trabajo {
 		System.out.println("");
 	}
 
-	public void setPostulante(Usuario a) {
+	public void manipularPostulantes(Usuario a) {
         Scanner input = new Scanner(System.in);
+        if(this.vacantes>=0) return;
+        
         if(this.titulo==null) {
             if(a.getExp()>=this.exp) {
                 this.listPostulantes.add(a);
                 System.out.println("Postulacion exitosa");
+                this.vacantes-=1;
             }
             else if (a.getExp()<this.exp) {
                 System.out.println("No posees la experiencia requerida ¿Aun quiere continuar?(si/no)");
@@ -96,6 +99,7 @@ public class Trabajo {
                 if(aux.contentEquals("si"));{
                     this.listPostulantes.add(a);
                     System.out.println("Postulacion exitosa");
+                    this.vacantes-=1;
                 }
                 if(aux.contentEquals("si")==false) {
                     System.out.println("entendido postulacion cancelada");
@@ -107,6 +111,7 @@ public class Trabajo {
             if(a.getExp()>=this.exp) {
                 this.listPostulantes.add(a);
                 System.out.println("Postulacion exitosa");
+                this.vacantes-=1;
             }
             else {
                 System.out.println("No posees la experiencia requerida ¿Aun quiere continuar?(si/no)");
@@ -114,6 +119,7 @@ public class Trabajo {
                 if(aux.contentEquals("si"));{
                     this.listPostulantes.add(a);
                     System.out.println("Postulacion exitosa");
+                    this.vacantes-=1;
                 }
                 if(aux.contentEquals("si")==false) {
                     System.out.println("entendido postulacion cancelada");
@@ -121,7 +127,7 @@ public class Trabajo {
             }
         }
         else {
-            System.out.println("No posees el titulo nesesario");
+            System.out.println("No posees el titulo nesesario para postular a este trabajo");
         }
 
     }
@@ -130,7 +136,7 @@ public class Trabajo {
 			System.out.println(this.listPostulantes.get(i).getNombre()+"\n");
 		}
 	}
-	public void eliminarPostulante(String nombre) {
+	public void manipularPostulantes(String nombre) {
         for (int i=0;i<this.listPostulantes.size();i++) {
             if(this.listPostulantes.get(i).getNombre().contentEquals(nombre)) {
                 this.listPostulantes.remove(i);

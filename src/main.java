@@ -99,7 +99,7 @@ public class main {
 					System.out.println("Le gustaria postular a algun trabajo (si/no)");
 					if(input.nextLine().contentEquals("si")) {
 							String n=input.nextLine();
-							mapaTrabajos.get(n).setPostulante(mapaUsuarios.get(nombre));
+							mapaTrabajos.get(n).manipularPostulantes(mapaUsuarios.get(nombre));
 							mapaTrabajos.get(n).Mostrar_postulantes();
 						
 					}
@@ -122,6 +122,11 @@ public class main {
 					for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
 					    entry.getValue().buscarPostulante(nombre);
 			
+					}
+					System.out.println("¿Desea eliminar alguna postulacion? (si/no)");
+					if(input.nextLine().contentEquals("si")){
+						System.out.println("Ingrese el nombre del trabajo del cual quiere remover su postulacion");
+						mapaTrabajos.get(input.nextLine()).manipularPostulantes(nombre);
 					}
 					
 				}
