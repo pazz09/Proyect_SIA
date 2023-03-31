@@ -96,7 +96,7 @@ public class main {
 					    entry.getValue().mostrarTrabajos();
 					    i++;
 					}
-					System.out.println("le gustaria postular a algun trabajo (si/no)");
+					System.out.println("Le gustaria postular a algun trabajo (si/no)");
 					if(input.nextLine().contentEquals("si")) {
 							String n=input.nextLine();
 							mapaTrabajos.get(n).setPostulante(mapaUsuarios.get(nombre));
@@ -163,7 +163,7 @@ public class main {
         auxUsuario.setUbicacion(input.nextLine());
         System.out.println("Ingrese su rut:");
         auxUsuario.setRut(input.nextLine());
-        System.out.println("¿Posee un titulo Profesional?: (si/no)");
+        System.out.println("¿Posee un Titulo Profesional?: (si/no)");
         a=input.nextLine();
         if (a.contentEquals("si")) {
             System.out.println("Ingrese su profesión:");
@@ -237,7 +237,7 @@ public class main {
 		System.out.println("ingrese nombre de Usuario: ");
 		aux = input.nextLine();
 		if (!existe(aux,mapaUsuarios)) {
-			System.out.println("Cuenta Inexistente");
+			System.out.println("---> Cuenta invalida <---");
 			System.out.println("¿Desea Crear una Cuenta nueva?  (si|no)");
 			aux = input.nextLine();
 			if (aux.contentEquals("si")){
@@ -253,7 +253,7 @@ public class main {
 				System.out.println("Ingrese RUT");
 				aux = input.nextLine();
 				auxUsuario.setRut(aux);
-				System.out.println("Ingrese Region");
+				System.out.println("Indique la Región donde vive:");
 				aux = input.nextLine();
 				auxUsuario.setUbicacion(aux);
 				
