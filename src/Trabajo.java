@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Trabajo {
 	
@@ -81,15 +82,63 @@ public class Trabajo {
 		System.out.println("Título "+ this.getTitulo());
 		System.out.println("");
 	}
+
 	public void setPostulante(Usuario a) {
-		this.listPostulantes.add(a);
-	}
-	
+        Scanner input = new Scanner(System.in);
+        if(this.titulo==null) {
+            if(a.getExp()>=this.exp) {
+                this.listPostulantes.add(a);
+                System.out.println("Postulacion exitosa");
+            }
+            else if (a.getExp()<this.exp) {
+                System.out.println("No posees la experiencia requerida ¿Aun quiere continuar?(si/no)");
+                String aux=input.nextLine();
+                if(aux.contentEquals("si"));{
+                    this.listPostulantes.add(a);
+                    System.out.println("Postulacion exitosa");
+                }
+                if(aux.contentEquals("si")==false) {
+                    System.out.println("entendido postulacion cancelada");
+                }
+
+            }
+        }
+        else if(a.getTitulo().contentEquals(this.titulo)) {
+            if(a.getExp()>=this.exp) {
+                this.listPostulantes.add(a);
+                System.out.println("Postulacion exitosa");
+            }
+            else {
+                System.out.println("No posees la experiencia requerida ¿Aun quiere continuar?(si/no)");
+                String aux=input.nextLine();
+                if(aux.contentEquals("si"));{
+                    this.listPostulantes.add(a);
+                    System.out.println("Postulacion exitosa");
+                }
+                if(aux.contentEquals("si")==false) {
+                    System.out.println("entendido postulacion cancelada");
+                }
+            }
+        }
+        else {
+            System.out.println("No posees el titulo nesesario");
+        }
+
+    }
 	public void Mostrar_postulantes() {
 		for (int i=0;i<this.listPostulantes.size();i++) {
 			System.out.println(this.listPostulantes.get(i).getNombre()+"\n");
 		}
 	}
+	public void eliminarPostulante(String nombre) {
+        for (int i=0;i<this.listPostulantes.size();i++) {
+            if(this.listPostulantes.get(i).getNombre().contentEquals(nombre)) {
+                this.listPostulantes.remove(i);
+                System.out.println("postulacion removida");
+            }
+        }
+
+    }
 	
 	public void buscarPostulante(String n) {
 		for (int i=0;i<this.listPostulantes.size();i++) {

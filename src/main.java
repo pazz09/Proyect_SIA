@@ -9,7 +9,7 @@ import java.io.IOException;
 public class main {
 	
 	private static String[][] usuarios = new String[30][10];
-	private static List<Usuario> listUsuarios = new ArrayList();
+	private static HashMap<String,Usuario> mapaUsuarios = new HashMap<String, Usuario>();
 	private static int cont = 0;
 	private static HashMap<String, Trabajo> mapaTrabajos = new HashMap<String, Trabajo>();
 	
@@ -25,12 +25,13 @@ public class main {
 		String clave;
 		boolean correcto = false;
 		String respuesta;
-		Usuario a;
+		Usuario a = null;
 		Trabajo trabajo;
 		
 		// Seccion Lectura CSV
 		CSV archivo = new CSV();
 		archivo.leerArchivo("C:\\Users\\lukio\\Documents\\GitHub\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
+		//aqui tiene que ir una lectura de csv de los usuarios ya creados
 		// Fin Lectura CSV
 		
 		
@@ -39,14 +40,15 @@ public class main {
 		System.out.println("--> BOLSA DE TRABAJO ONLINE CHILENA <--");
 		System.out.println(" ");
 		System.out.println("INICIO DE SESIÓN");
-		
+		a = iniciarSesion(mapaUsuarios,input);
+		/*
 		while(! correcto) {
 			System.out.println("Usuario: ");
 			nombre = input.nextLine();
 			System.out.println("Contraseña: ");
 			clave = input.nextLine();
 			
-			if (existe(nombre, clave)) {
+			if (existe(nombre,mapaUsuarios)) {
 				System.out.println("HOLA "+ nombre);
 				correcto = true;
 			}
@@ -56,8 +58,8 @@ public class main {
 				respuesta = input.nextLine();
 				
 				if (respuesta.equals("si")) {
-					crear(nombre, clave, input,listUsuarios); //input es algo que lei para que le entre a la función info adicional
-					ControlArchivos.guardar(listUsuarios);
+					crear(nombre, clave, input,mapaUsuarios); //input es algo que lei para que le entre a la función info adicional
+					//ControlArchivos.guardar(listUsuarios);
 					
 					System.out.println("LISTO!, ya tienes una cuenta :)");
 					System.out.println(" ");
@@ -66,7 +68,7 @@ public class main {
 				}
 			}			
 		}
-		
+		*/
 		System.out.println("Bienvenid@ a la BOLSA DE TRABAJO ONLINE\n");
 		System.out.println("-----> MENU <-----");
 		while (true) {
@@ -75,6 +77,13 @@ public class main {
 			ingresado = Integer.parseInt(input.nextLine());
 			
 			if (ingresado == 1) {
+				
+				if (a == null) {
+					System.out.println("¡¡Para buscar trabajo necesita iniciar sesion!!\n");
+					a = iniciarSesion(mapaUsuarios,input); //para buscar trabajo necesita iniciar sesion
+				}
+				
+				
 				System.out.println("Indique la opción que le gustaría mostrar:");
 				System.out.println("1. Trabajos disponibles");
 				System.out.println("2. Trabajos recomendados");
@@ -92,7 +101,7 @@ public class main {
 					System.out.println("le gustaria postular a algun trabajo (si/no)");
 					if(input.nextLine().contentEquals("si")) {
 							String n=input.nextLine();
-							mapaTrabajos.get(n).setPostulante(buscado(nombre,listUsuarios));
+							mapaTrabajos.get(n).setPostulante(mapaUsuarios.get(nombre));
 							mapaTrabajos.get(n).Mostrar_postulantes();
 						
 					}
@@ -132,55 +141,55 @@ public class main {
 
 	}
 	
-	private static boolean existe(String nombre, String clave) {
-		for(int i = 0; i < cont; i++) {
-			if(listUsuarios.get(i).getNombre().equals(nombre)&& listUsuarios.get(i).getClave().equals(clave)) {
-				return true;
-			}
+	private static boolean existe(String nombre, HashMap<String,Usuario> mapaUsuarios) {
+		Usuario a = null;
+		a = mapaUsuarios.get(nombre);
+		
+		if (a == null) {
+			return false;
+		}else {
+			return true;
 		}
-		return false;
+		
 	}
 	// Crea Usuario
-	private static void crear(String nombre, String clave, Scanner input, List aux) {
-		
-		Usuario auxUsuario = new Usuario();
-		String a;
-		System.out.println("Ingrese nombre de usuario:");
-		auxUsuario.setNombre(input.nextLine());
-		System.out.println("Ingrese su edad:");
-		auxUsuario.setEdad(Integer.parseInt(input.nextLine()));
-		System.out.println("Indique la Región donde vive: (seleccione el número correspondiente)");
-		
-		for(String region : Ubicacion.getListaRegiones()) {
-			System.out.println(region);
-		}
-		auxUsuario.setUbicacion(Integer.parseInt(input.nextLine()));
-		System.out.println("¿Posee un titulo Profesional?: (si/no)");
-		a=input.nextLine();
-		if (a.contentEquals("si")) {
-			auxUsuario.setposee(true);
-		}
-		else auxUsuario.setposee(false);
-		if(auxUsuario.getposee()==true) {
-			System.out.println("Ingrese su profesión:");
-			auxUsuario.setProfesion(input.nextLine());
-		}
-		else {
-			System.out.println("¿En que area posee experiencia laboral?:");
-			auxUsuario.setProfesion(input.nextLine());
-		}
-        
+	private static void crear(String nombre, String clave, Scanner input, HashMap<String,Usuario> aux) {
+
+        Usuario auxUsuario = new Usuario();
+        String a;
+        System.out.println("Ingrese nombre de usuario:");
+        auxUsuario.setNombre(input.nextLine());
+        System.out.println("Ingrese su edad:");
+        auxUsuario.setEdad(Integer.parseInt(input.nextLine()));
+        System.out.println("Indique la Región donde vive:");
+        auxUsuario.setUbicacion(input.nextLine());
+        System.out.println("Ingrese su rut:");
+        auxUsuario.setRut(input.nextLine());
+        System.out.println("¿Posee un titulo Profesional?: (si/no)");
+        a=input.nextLine();
+        if (a.contentEquals("si")) {
+            System.out.println("Ingrese su profesión:");
+            auxUsuario.setTitulo(input.nextLine());
+        }
+        else auxUsuario.setTitulo(null);
+        System.out.println("¿Posee experiencia?: (si/no)");
+        a=input.nextLine();
+        if (a.contentEquals("si")) {
+            System.out.println("Cantidad de experiencia en años:");
+            auxUsuario.setExp(Integer.parseInt(input.nextLine()));
+        }
+        else auxUsuario.setExp(0);
+        System.out.println("Ingrese el sueldo esperado:");
+         auxUsuario.setSueldo(Integer.parseInt(input.nextLine()));
         System.out.println("Ingrese una contraseña:");
+
         auxUsuario.setClave(input.nextLine());
-		
-        
-        cont++;
-		aux.add(auxUsuario);
-		
-		
-	}
+        aux.put(auxUsuario.getNombre(),auxUsuario);
+
+
+    }
 // Crea Trabajo
-	private static void crear(Scanner input, HashMap aux) {
+	private static void crear(Scanner input, HashMap<String,Trabajo> aux) {
 
         Trabajo auxTrabajo = new Trabajo();
         String a;
@@ -218,8 +227,73 @@ public class main {
 
     }
 	
+	private static Usuario buscado(String nombre, HashMap<String,Usuario> mapaUsuarios ) {
+		Usuario a = null;
+		a = mapaUsuarios.get(nombre);
+		return a;
+	}
 	
-	private static Usuario buscado(String n, List<Usuario> listUsuarios ) {
+	private static Usuario iniciarSesion(HashMap<String,Usuario> mapaUsuarios,Scanner input){
+		String aux;
+		Usuario auxUsuario = new Usuario();
+		System.out.println("ingrese nombre de Usuario: ");
+		aux = input.nextLine();
+		if (!existe(aux,mapaUsuarios)) {
+			System.out.println("Cuenta Inexistente");
+			System.out.println("¿Desea Crear una Cuenta nueva?  (si|no)");
+			aux = input.nextLine();
+			if (aux.contentEquals("si")){
+				System.out.println("Ingrese Nombre de Usuario: ");
+				aux = input.nextLine();
+				auxUsuario.setNombre(aux);
+				System.out.println("Ingrese Clave: ");
+				aux = input.nextLine();
+				auxUsuario.setClave(aux);
+				System.out.println("Ingrese edad: ");
+				aux = input.nextLine();
+				auxUsuario.setEdad(Integer.parseInt(aux));
+				System.out.println("Ingrese RUT");
+				aux = input.nextLine();
+				auxUsuario.setRut(aux);
+				System.out.println("Ingrese Region");
+				aux = input.nextLine();
+				auxUsuario.setUbicacion(aux);
+				
+				System.out.println("¿Posee un titulo? (si|no)");
+				aux = input.nextLine();
+				if (aux.contentEquals("si")) {
+					System.out.println("Ingrese Titulo");
+					aux = input.nextLine();
+					auxUsuario.setTitulo(aux);
+				}else {
+					auxUsuario.setTitulo("no posee");
+				}
+				
+				System.out.println("Ingrese Años de experiencia");
+				aux = input.nextLine();
+				auxUsuario.setExp(Integer.parseInt(aux));
+				System.out.println("Ingrese sueldo minimo aceptado");
+				aux = input.nextLine();
+				auxUsuario.setSueldo(Integer.parseInt(aux));
+				
+				mapaUsuarios.put(auxUsuario.getNombre(), auxUsuario);
+				System.out.println("CUENTA CREADA CON EXITO!!");
+				System.out.println("");
+				return iniciarSesion(mapaUsuarios,input);
+			}else return null;
+			
+		}else{
+			System.out.println("Ingres contraseña");
+			if (input.nextLine().contentEquals(mapaUsuarios.get(aux).getClave())) {
+				return(mapaUsuarios.get(aux));
+			}else return iniciarSesion(mapaUsuarios,input);
+		}
+		
+		
+	}
+	
+	/*
+	private static Usuario buscado1(String n, List<Usuario> listUsuarios ) {
 		Usuario a=null;
 		for (int i=0;i<listUsuarios.size();i++) {
 			if(listUsuarios.get(i).getNombre().contentEquals(n)) {
@@ -230,5 +304,5 @@ public class main {
 		
 		return a;
 	}
-	
+	*/
 }
