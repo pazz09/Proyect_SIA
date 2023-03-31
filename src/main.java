@@ -30,7 +30,7 @@ public class main {
 		
 		// Seccion Lectura CSV
 		CSV archivo = new CSV();
-		archivo.leerArchivo("C:\\Users\\lukio\\Documents\\GitHub\\Proyect_SIA\\Trabajos.csv",mapaTrabajos);
+		archivo.leerArchivo(System.getProperty("user.dir") + "\\src\\Archivos\\Trabajos.csv",mapaTrabajos);
 		//aqui tiene que ir una lectura de csv de los usuarios ya creados
 		// Fin Lectura CSV
 		
