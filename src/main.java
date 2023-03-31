@@ -16,9 +16,6 @@ public class main {
 	
 	public static void main(String[] arg) throws IOException{
 
-		
-		
-		
 		int ingresado; // Variable que se va modificando para la visualizacion del menu
 		Scanner input = new Scanner(System.in);
 		String nombre=null;
@@ -31,6 +28,7 @@ public class main {
 		// Seccion Lectura CSV
 		CSV archivo = new CSV();
 		archivo.leerArchivo(System.getProperty("user.dir") + "\\src\\Archivos\\Trabajos.csv",mapaTrabajos);
+		archivo.leerArchivo1(System.getProperty("user.dir") + "\\src\\Archivos\\usuarios.csv",mapaUsuarios);
 		//aqui tiene que ir una lectura de csv de los usuarios ya creados
 		// Fin Lectura CSV
 		
