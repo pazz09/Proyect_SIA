@@ -117,6 +117,7 @@ public class main {
 			
 			if (ingresado==0) {
 				archivo.exportar(mapaUsuarios);
+				archivo.exportarT(mapaTrabajos);
 				break;
 			}
 		}

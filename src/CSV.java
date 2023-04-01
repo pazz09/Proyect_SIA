@@ -43,7 +43,7 @@ public class CSV {
 			lector= new BufferedReader(new FileReader(nombreArchivo)); 
 			while((linea=lector.readLine())!=null) {
 				
-				partes=linea.split(",");
+				partes=linea.split(";");
 				imprimirLinea1(mapaUsuarios);
 				//se agregan en la lista
 				
@@ -89,19 +89,19 @@ public class CSV {
             for (HashMap.Entry<String, Usuario> entry : mapaUsuarios.entrySet()) {
                 String key = entry.getKey();
                 csvWriter.append(mapaUsuarios.get(key).getNombre());
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append(mapaUsuarios.get(key).getEdad()+"");
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append(mapaUsuarios.get(key).getClave());
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append(mapaUsuarios.get(key).getRut());
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append(mapaUsuarios.get(key).getUbicacion());
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append(mapaUsuarios.get(key).getTitulo());
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append(mapaUsuarios.get(key).getExp()+"");
-                csvWriter.append(",");
+                csvWriter.append(";");
                 csvWriter.append(mapaUsuarios.get(key).getSueldo()+"");
                 csvWriter.append("\n");
             }
@@ -112,6 +112,35 @@ public class CSV {
         }
     }
 	
+	public void exportarT(HashMap<String,Trabajo> mapaTrabajos) {
+        try {
+            FileWriter csvWriter = new FileWriter(System.getProperty("user.dir") + "\\src\\Archivos\\Trabajos.csv");
+
+            for (HashMap.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
+                String key = entry.getKey();
+                csvWriter.append(mapaTrabajos.get(key).getNombre());
+                csvWriter.append(";");
+                csvWriter.append(mapaTrabajos.get(key).getRegion());
+                csvWriter.append(";");
+                csvWriter.append(mapaTrabajos.get(key).getSueldo()+"");
+                csvWriter.append(";");
+                csvWriter.append(mapaTrabajos.get(key).getHorario());
+                csvWriter.append(";");
+                csvWriter.append(mapaTrabajos.get(key).getVacantes()+"");
+                csvWriter.append(";");
+                csvWriter.append(mapaTrabajos.get(key).getExp()+"");
+                csvWriter.append(";");
+                csvWriter.append(mapaTrabajos.get(key).getTitulo());
+                csvWriter.append("\n");
+
+
+            }
+            csvWriter.flush();
+            csvWriter.close();
+        }catch (IOException e) {
+            System.out.println("Error al exportar el archivo CSV: " + e.getMessage());
+        }
+    }
 	
 	
 	public void imprimirLinea(HashMap<String,Trabajo> mapaTrabajos){

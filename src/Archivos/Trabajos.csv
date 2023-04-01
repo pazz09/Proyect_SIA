@@ -1,10 +1,50 @@
-Médico;O'Higgins;2000000;Lunes a Viernes de 8:00 a 17:00 hrs.;12;1;Médico
-Abogado;Tarapacá;1500000;Lunes a Viernes de 9:00 a 18:00 hrs.;5;3;a
-Desarrollador de Software;Maule;1800000;Lunes a Viernes de 8:30 a 17:30 hrs.;10;2;ingeniero informatico
-Periodista;Ñuble;1200000;Lunes a Viernes de 9:00 a 18:00 hrs.;4;0;a
-Profesor;Antofagasta;1500000;Lunes a Viernes de 8:00 a 17:00 hrs.;24;1;a
-Arquitecto;Arica y Parinacota;1700000;Lunes a Viernes de 9:00 a 18:00 hrs.;3;0;a
-Chef;Valparaíso;1000000;Lunes a Domingo de 12:00 a 22:00 hrs.;1;1;a
-Diseñador Gráfico;Región Metropolitana de Santiago;1200000;Lunes a Viernes de 9:00 a 18:00 hrs.;3;3;a
-Programador;Coquimbo;1500000;Lunes a Viernes de 8:30 a 17:30 hrs.;26;0;a
-Enfermero;Atacama;1200000;Lunes a Viernes de 8:00 a 17:00 hrs.;20;1;a
+Administrador de sistemas;Antofagasta;1500000;Lunes a Viernes de 8:00 a 17:00 hrs.;2;1;a
+Analista de datos;Aysen;1500000;Lunes a Viernes de 8:30 a 17:30 hrs.;3;0;a
+Arquitecto de software;Arica y Parinacota;1700000;Lunes a Viernes de 9:00 a 18:00 hrs.;2;0;a
+Asesor financiero;Atacama;1000000;Lunes a Domingo de 12:00 a 22:00 hrs.;1;1;a
+Asistente administrativo;Biobio;2000000;Lunes a Viernes de 8:00 a 17:00 hrs.;5;1;Mï¿½dico
+Auxiliar de enfermeria;Coquimbo;1800000;Lunes a Viernes de 8:30 a 17:30 hrs.;4;2;ingeniero informatico
+Camarero;La Araucania;1200000;Lunes a Viernes de 9:00 a 18:00 hrs.;4;0;a
+Chef;Los Lagos;1200000;Lunes a Viernes de 8:00 a 17:00 hrs.;3;1;a
+Community Manager;Los Rios;1500000;Lunes a Viernes de 9:00 a 18:00 hrs.;2;3;a
+Contador;Magallanes;1200000;Lunes a Viernes de 9:00 a 18:00 hrs.;3;3;a
+Coordinador de proyectos;Maule;900000;Lunes a Viernes de 8:00 a 17:00 hrs.;2;1;
+Desarrollador de software;Nuble;2500000;Lunes a Viernes de 8:30 a 17:30 hrs.;1;0;
+Disenador grafico;O'Higgins;1500000;Lunes a Viernes de 9:00 a 18:00 hrs.;5;0;
+Electricista;Tarapaca;1500000;Lunes a Domingo de 12:00 a 22:00 hrs.;4;1;
+Encargado de almacen;Valparaiso;1700000;Lunes a Viernes de 8:00 a 17:00 hrs.;4;1;
+Enfermero;Magallanes;1000000;Lunes a Viernes de 8:30 a 17:30 hrs.;3;2;
+Escritor;Los Rios;2000000;Lunes a Viernes de 9:00 a 18:00 hrs.;2;0;
+Fotografo;Coquimbo;1800000;Lunes a Viernes de 8:00 a 17:00 hrs.;3;1;
+Gerente de recursos humanos;Aysen;1200000;Lunes a Viernes de 9:00 a 18:00 hrs.;2;3;
+Guia turistico;Biobio;1200000;Lunes a Viernes de 9:00 a 18:00 hrs.;1;3;
+Ingeniero civil;Arica y Parinacota;1500000;Lunes a Viernes de 8:00 a 17:00 hrs.;5;1;
+Ingeniero de sistemas;Atacama;1200000;Lunes a Viernes de 8:30 a 17:30 hrs.;4;0;
+Jardinero;Valparaiso;900000;Lunes a Viernes de 9:00 a 18:00 hrs.;4;0;
+Licenciado en educacion;Maule;2500000;Lunes a Domingo de 12:00 a 22:00 hrs.;3;1;
+Maestro de primaria;O'Higgins;1500000;Lunes a Viernes de 8:00 a 17:00 hrs.;2;1;
+Marketing Manager;Antofagasta;1500000;Lunes a Viernes de 8:30 a 17:30 hrs.;3;2;
+Mecanico;Tarapaca;1700000;Lunes a Viernes de 9:00 a 18:00 hrs.;2;0;
+Medico;La Araucania;1000000;Lunes a Viernes de 8:00 a 17:00 hrs.;1;1;
+Mesero;Biobio;2000000;Lunes a Viernes de 9:00 a 18:00 hrs.;5;3;
+Nutricionista;Magallanes;1800000;Lunes a Viernes de 9:00 a 18:00 hrs.;4;3;
+Odontologo;Los Lagos;1200000;Lunes a Viernes de 8:00 a 17:00 hrs.;4;1;
+Operador de maquinaria;Los Rios;1200000;Lunes a Viernes de 8:30 a 17:30 hrs.;3;0;
+Periodista;Nuble;1500000;Lunes a Viernes de 9:00 a 18:00 hrs.;2;0;
+Piloto;Aysen;1200000;Lunes a Domingo de 12:00 a 22:00 hrs.;3;1;
+Programador;Coquimbo;900000;Lunes a Viernes de 8:00 a 17:00 hrs.;2;1;
+Psicologo;Arica y Parinacota;2500000;Lunes a Viernes de 8:30 a 17:30 hrs.;1;2;
+Recepcionista;Antofagasta;1500000;Lunes a Viernes de 9:00 a 18:00 hrs.;5;0;
+Secretario;La Araucania;1500000;Lunes a Viernes de 8:00 a 17:00 hrs.;4;1;
+Soporte tecnico;Valparaiso;1700000;Lunes a Viernes de 9:00 a 18:00 hrs.;4;3;
+Tecnico de informatica;Atacama;1000000;Lunes a Viernes de 9:00 a 18:00 hrs.;3;3;
+Tecnico en electricidad;Maule;2000000;Lunes a Viernes de 8:00 a 17:00 hrs.;2;1;
+Tecnico en redes;O'Higgins;1800000;Lunes a Viernes de 8:30 a 17:30 hrs.;3;0;
+Tecnico en reparacion de moviles;Tarapaca;1200000;Lunes a Viernes de 9:00 a 18:00 hrs.;2;0;
+Terapeuta ocupacional;Biobio;1200000;Lunes a Domingo de 12:00 a 22:00 hrs.;1;1;
+Traductor;Los Lagos;1500000;Lunes a Viernes de 8:00 a 17:00 hrs.;5;1;
+Vendedor;Los Rios;1200000;Lunes a Viernes de 8:30 a 17:30 hrs.;4;2;
+Veterinario;Magallanes;900000;Lunes a Viernes de 9:00 a 18:00 hrs.;4;0;
+Webmaster;Nuble;2500000;Lunes a Viernes de 8:00 a 17:00 hrs.;3;1;
+Programador;Metropolitana;1000000;Lunes a Viernes de 9:00 a 18:00 hrs.;1;3;
+Psicologo;Metropolitana;1000000;Lunes a Viernes de 8:00 a 17:00 hrs.;0;3;
