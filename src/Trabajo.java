@@ -85,7 +85,11 @@ public class Trabajo {
 
 	public void manipularPostulantes(Usuario a) {
         Scanner input = new Scanner(System.in);
-        if(this.vacantes>=0) return;
+        if(this.vacantes>=0) {
+        	
+        	System.out.println("No hay vacantes disponibles");
+        	return;
+        }
         
         if(this.titulo==null) {
             if(a.getExp()>=this.exp) {
