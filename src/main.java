@@ -72,6 +72,7 @@ public class main {
 		while (true) {
 			System.out.println("1. Buscar Trabajo ------> (Postulante)");
 			System.out.println("2. Publicar Trabajo ----> (Empresa)");
+			System.out.println("0. Salir ----");
 			ingresado = Integer.parseInt(input.nextLine());
 			
 			if (ingresado == 1) {
@@ -138,6 +139,10 @@ public class main {
 			}
 			if (ingresado == 2) {
 				crear(input,mapaTrabajos);
+			}
+			
+			if (ingresado==0) {
+				archivo.exportar(mapaUsuarios);
 			}
 		}
 		

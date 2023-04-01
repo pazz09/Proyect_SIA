@@ -2,9 +2,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.io.FileReader;
 import javax.swing.JOptionPane;
-
+import java.io.FileWriter;
+import java.io.IOException;
 public class CSV {
 	private BufferedReader lector;
 	private String linea;
@@ -79,7 +80,35 @@ public class CSV {
 		
 		
 	}
-	
+	public void exportar(HashMap<String,Usuario>mapaUsuarios) {
+        try {
+            FileWriter csvWriter = new FileWriter(System.getProperty("user.dir") + "\\src\\Archivos\\usuarios.csv");
+
+            for (HashMap.Entry<String, Usuario> entry : mapaUsuarios.entrySet()) {
+                String key = entry.getKey();
+                csvWriter.append(mapaUsuarios.get(key).getNombre());
+                csvWriter.append(",");
+                csvWriter.append(mapaUsuarios.get(key).getEdad()+"");
+                csvWriter.append(",");
+                csvWriter.append(mapaUsuarios.get(key).getClave());
+                csvWriter.append(",");
+                csvWriter.append(mapaUsuarios.get(key).getRut());
+                csvWriter.append(",");
+                csvWriter.append(mapaUsuarios.get(key).getUbicacion());
+                csvWriter.append(",");
+                csvWriter.append(mapaUsuarios.get(key).getTitulo());
+                csvWriter.append(",");
+                csvWriter.append(mapaUsuarios.get(key).getExp()+"");
+                csvWriter.append(",");
+                csvWriter.append(mapaUsuarios.get(key).getSueldo()+"");
+                csvWriter.append("\n");
+            }
+            csvWriter.flush();
+            csvWriter.close();
+        }catch (IOException e) {
+            System.out.println("Error al exportar el archivo CSV: " + e.getMessage());
+        }
+    }
 	
 	public void imprimirLinea(HashMap<String,Trabajo> mapaTrabajos){
 		Trabajo obj = new Trabajo();
@@ -100,5 +129,6 @@ public class CSV {
 		
 		
 	}
+	
 	
 }
