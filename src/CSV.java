@@ -6,6 +6,8 @@ import java.io.FileReader;
 import javax.swing.JOptionPane;
 import java.io.FileWriter;
 import java.io.IOException;
+
+
 public class CSV {
 	private BufferedReader lector;
 	private String linea;
@@ -41,7 +43,7 @@ public class CSV {
 			lector= new BufferedReader(new FileReader(nombreArchivo)); 
 			while((linea=lector.readLine())!=null) {
 				
-				partes=linea.split(";");
+				partes=linea.split(",");
 				imprimirLinea1(mapaUsuarios);
 				//se agregan en la lista
 				
@@ -109,6 +111,8 @@ public class CSV {
             System.out.println("Error al exportar el archivo CSV: " + e.getMessage());
         }
     }
+	
+	
 	
 	public void imprimirLinea(HashMap<String,Trabajo> mapaTrabajos){
 		Trabajo obj = new Trabajo();

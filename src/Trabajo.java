@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class Trabajo {
 	
@@ -72,7 +73,7 @@ public class Trabajo {
 		this.titulo = titulo;
 	}
 
-	public void mostrarTrabajos() {
+	public void mostrarTrabajo() {
 		System.out.println("Nombre: "+ this.getNombre());
 		System.out.println("Ubicación: "+ this.getRegion());
 		System.out.println("Sueldo base: "+ this.getSueldo());
@@ -82,6 +83,7 @@ public class Trabajo {
 		System.out.println("Título "+ this.getTitulo());
 		System.out.println("");
 	}
+
 
 	public void manipularPostulantes(Usuario a) {
         Scanner input = new Scanner(System.in);
