@@ -90,7 +90,7 @@ public class main {
 				if (ingresado == 2) {
 					System.out.println("El programa te mostrara los puestos de trabajos que coinciden con tus estudios y datos personales");
 					mostrarTrabajo(a,mapaTrabajos);
-					break;
+					ingresado = -1; // solucion basica a problemas basicos xD
 					
 				}
 				if (ingresado == 3) {
@@ -104,7 +104,6 @@ public class main {
 						System.out.println("Ingrese el nombre del trabajo del cual quiere remover su postulacion");
 						mapaTrabajos.get(input.nextLine()).manipularPostulantes(nombre);
 					}
-					
 				}
 				if (ingresado == 4) {
 					System.out.println("Se muestan todos los trabajos cercanos");
@@ -240,18 +239,21 @@ public class main {
 	
 	private static void mostrarTrabajo(Usuario usuario,HashMap<String,Trabajo> mapaTrabajos) {
 		Trabajo trabajo= new Trabajo();
+		int cont = 0;
 		for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
 		    trabajo = entry.getValue();
 		    if (trabajo.getRegion().contentEquals(usuario.getUbicacion())){
 		    	if (trabajo.getSueldo()>= usuario.getSueldo()) {
-		    		if (trabajo.getTitulo().contentEquals(usuario.getTitulo())) {
+		    		if (trabajo.getTitulo().contentEquals(usuario.getTitulo()) || trabajo.getTitulo().contentEquals("no posee")) {
 		    			if (trabajo.getExp()<=usuario.getExp()) {
 		    				trabajo.mostrarTrabajo();
+		    				cont++;
 		    			}
 		    		}	
 		    	}
 		    }
 		}
+		if (cont == 0) System.out.println("No se ha encontrado ningun trabajo que coincida con tus datos");
 	}
 	
 	private static void mostrarTrabajo(String ubicacion,HashMap<String,Trabajo> mapaTrabajos) {
