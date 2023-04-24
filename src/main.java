@@ -1,16 +1,12 @@
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 public class main {
 	
-	private static String[][] usuarios = new String[30][10];
+	
 	private static HashMap<String,Usuario> mapaUsuarios = new HashMap<String, Usuario>();
-	private static int cont = 0;
 	private static HashMap<String, Trabajo> mapaTrabajos = new HashMap<String, Trabajo>();
 	
 	
@@ -19,11 +15,8 @@ public class main {
 		int ingresado; // Variable que se va modificando para la visualizacion del menu
 		Scanner input = new Scanner(System.in);
 		String nombre=null;
-		String clave;
-		boolean correcto = false;
 		String respuesta;
 		Usuario a = null;
-		Trabajo trabajo;
 		
 		// Seccion Lectura CSV
 		CSV archivo = new CSV();
@@ -44,83 +37,106 @@ public class main {
 		System.out.println("Se sugiere que todas las respuestas que\ningrese sean en minuscula y sin tilde.\nLa ñ == n \n");
 		
 		while (true) {
-			System.out.println("-----> MENU <-----");
-			System.out.println("1. Buscar Trabajo ------> (Postulante)");
-			System.out.println("2. Publicar Trabajo ----> (Empresa)");
-			System.out.println("0. Salir");
-			ingresado = Integer.parseInt(input.nextLine());
-			
-			if (ingresado == 1) {
-				
-				if (a == null) {
-					System.out.println("¡¡Para buscar trabajo necesita iniciar sesion!!\n");
-					a = iniciarSesion(mapaUsuarios,input); //para buscar trabajo necesita iniciar sesion
-				}
-				
-				
-				System.out.println("Indique la opción que le gustaría mostrar:");
-				System.out.println("1. Trabajos disponibles");
-				System.out.println("2. Trabajos recomendados");
-				System.out.println("3. Trabajos a los que postulaste");
-				System.out.println("4. Trabajos cercanos a tu ubicación");
-				ingresado = Integer.parseInt(input.nextLine());
-				
-				if (ingresado == 1) {
-					int i = 1;
-					for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
-						System.out.println("Trabajo n° "+i+":");
-					    entry.getValue().mostrarTrabajo();
-					    i++;
-					}
-					System.out.println("Le gustaria postular a algun trabajo (si/no)");
-					if(input.nextLine().contentEquals("si")) {
-							String n=input.nextLine();
-							mapaTrabajos.get(n).manipularPostulantes(mapaUsuarios.get(nombre));
-							mapaTrabajos.get(n).Mostrar_postulantes();
-						
-					}
-					System.out.println("¿Te gustaría volver al menu principal? (si/no)");
-					respuesta = input.nextLine();
-					if (respuesta.equals("no")) {
-						System.out.println("ADIOS!!");
-						break;
-					}
-					
-				}
-				if (ingresado == 2) {
-					System.out.println("El programa te mostrara los puestos de trabajos que coinciden con tus estudios y datos personales");
-					mostrarTrabajo(a,mapaTrabajos);
-					ingresado = -1; // solucion basica a problemas basicos xD
-					
-				}
-				if (ingresado == 3) {
-					System.out.println("ESTOS SON LOS TRABAJOS A LOS QUE HAS POSTULADO");
-					for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
-					    entry.getValue().buscarPostulante(nombre);
-			
-					}
-					System.out.println("¿Desea eliminar alguna postulacion? (si/no)");
-					if(input.nextLine().contentEquals("si")){
-						System.out.println("Ingrese el nombre del trabajo del cual quiere remover su postulacion");
-						mapaTrabajos.get(input.nextLine()).manipularPostulantes(nombre);
-					}
-				}
-				if (ingresado == 4) {
-					System.out.println("Se muestan todos los trabajos cercanos");
-					mostrarTrabajo(a.getUbicacion(),mapaTrabajos);
-				}
-				
-				
-			}
-			if (ingresado == 2) {
-				crear(input,mapaTrabajos);
-			}
-			
-			if (ingresado==0) {
-				archivo.exportar(mapaUsuarios);
-				archivo.exportarT(mapaTrabajos);
-				break;
-			}
+		    System.out.println("-----> MENU <-----");
+		    System.out.println("1. Buscar Trabajo ------> (Postulante)");
+		    System.out.println("2. Publicar Trabajo ----> (Empresa)");
+		    System.out.println("0. Salir");
+
+		    ingresado = Integer.parseInt(input.nextLine());
+
+		    switch (ingresado) {
+		        case 1:
+		            if (a == null) {
+		                System.out.println("¡¡Para buscar trabajo necesita iniciar sesion!!\n");
+		                a = iniciarSesion(mapaUsuarios, input);
+		            }
+
+		            System.out.println("Indique la opción que le gustaría mostrar:");
+		            System.out.println("1. Trabajos disponibles");
+		            System.out.println("2. Trabajos recomendados");
+		            System.out.println("3. Trabajos a los que postulaste");
+		            System.out.println("4. Trabajos cercanos a tu ubicación");
+
+		            ingresado = Integer.parseInt(input.nextLine());
+
+		            switch (ingresado) {
+		                case 1:
+		                    int i = 1;
+		                    for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
+		                        System.out.println("Trabajo n° " + i + ":");
+		                        entry.getValue().mostrarTrabajo();
+		                        i++;
+		                    }
+
+		                    System.out.println("Le gustaria postular a algun trabajo (si/no)");
+
+		                    if (input.nextLine().equals("si")) {
+		                        String n = input.nextLine();
+		                        mapaTrabajos.get(n).manipularPostulantes(mapaUsuarios.get(nombre));
+		                        mapaTrabajos.get(n).Mostrar_postulantes();
+		                    }
+
+		                    System.out.println("¿Te gustaría volver al menu principal? (si/no)");
+		                    respuesta = input.nextLine();
+
+		                    if (respuesta.equals("no")) {
+		                        System.out.println("ADIOS!!");
+		                        break;
+		                    }
+
+		                    break;
+
+		                case 2:
+		                    System.out.println("El programa te mostrara los puestos de trabajos que coinciden con tus estudios y datos personales");
+		                    mostrarTrabajo(a, mapaTrabajos);
+		                    ingresado = -1;
+		                    break;
+
+		                case 3:
+		                    System.out.println("ESTOS SON LOS TRABAJOS A LOS QUE HAS POSTULADO");
+
+		                    for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
+		                        entry.getValue().buscarPostulante(nombre);
+		                    }
+
+		                    System.out.println("¿Desea eliminar alguna postulacion? (si/no)");
+
+		                    if (input.nextLine().equals("si")) {
+		                        System.out.println("Ingrese el nombre del trabajo del cual quiere remover su postulacion");
+		                        mapaTrabajos.get(input.nextLine()).manipularPostulantes(nombre);
+		                    }
+
+		                    break;
+
+		                case 4:
+		                    System.out.println("Se muestan todos los trabajos cercanos");
+		                    mostrarTrabajo(a.getUbicacion(), mapaTrabajos);
+		                    break;
+
+		                default:
+		                    System.out.println("Opción inválida");
+		                    break;
+		            }
+
+		            break;
+
+		        case 2:
+		            crear(input, mapaTrabajos);
+		            break;
+
+		        case 0:
+		            archivo.exportar(mapaUsuarios);
+		            archivo.exportarT(mapaTrabajos);
+		            break;
+
+		        default:
+		            System.out.println("Opción inválida");
+		            break;
+		    }
+
+		    if (ingresado == 0) {
+		        break;
+		    }
 		}
 		
 
@@ -166,12 +182,15 @@ public class main {
         else auxTrabajo.setExp(0);
 
         System.out.println("Ingrese el horario laboral:");
-        auxTrabajo.setHorario(input.nextLine());
+        auxTrabajo.setHorario(input.nextLine());        
+        try {
         System.out.println("Ingrese el sueldo base a ofrecer:");
         auxTrabajo.setSueldo(Integer.parseInt(input.nextLine()));
+        }catch(Exception e){
+        	System.out.println("responda con numeros ");
+        }
         System.out.println("Ingrese el número de vacantes:");
         auxTrabajo.setSueldo(Integer.parseInt(input.nextLine()));
-        cont++;
         aux.put(key,auxTrabajo);
 
 
