@@ -87,37 +87,44 @@ public class Trabajo {
 
 	public void manipularPostulantes(Usuario a) {
         Scanner input = new Scanner(System.in);
-        if(this.vacantes>=0) {
+        
+        //Se comprueba que existan vacantes disponibles
+        if(this.vacantes<=0) {
         	
         	System.out.println("No hay vacantes disponibles");
         	return;
         }
+        //En caso de existir vacantes se comprueba la experiencia nesesaria
         
-        if(this.titulo==null) {
-            if(a.getExp()>=this.exp) {
+        //este if comprueba si no se requiere titulo
+        if(this.titulo==null || this.titulo.contentEquals("No posee")) {
+        	
+        	//comprueban la experiencia nesesaria
+            if(a.getExp()>=this.exp || this.exp==0 ) {
                 this.listPostulantes.add(a);
                 System.out.println("Postulacion exitosa");
                 this.vacantes-=1;
+                return;
             }
-            else if (a.getExp()<this.exp) {
+            if (a.getExp()<this.exp ) {
                 System.out.println("No posees la experiencia requerida ¿Aun quiere continuar?(si/no)");
                 String aux=input.nextLine();
                 if(aux.contentEquals("si"));{
                     this.listPostulantes.add(a);
                     System.out.println("Postulacion exitosa");
                     this.vacantes-=1;
-                }
-                if(aux.contentEquals("si")==false) {
-                    System.out.println("entendido postulacion cancelada");
+					return;
                 }
 
             }
         }
-        else if(a.getTitulo().contentEquals(this.titulo)) {
+        //Comprueba si se poseee el titulo nesesario
+        if(a.getTitulo().contentEquals(this.titulo)) {
             if(a.getExp()>=this.exp) {
                 this.listPostulantes.add(a);
                 System.out.println("Postulacion exitosa");
                 this.vacantes-=1;
+					return;
             }
             else {
                 System.out.println("No posees la experiencia requerida ¿Aun quiere continuar?(si/no)");
@@ -126,14 +133,14 @@ public class Trabajo {
                     this.listPostulantes.add(a);
                     System.out.println("Postulacion exitosa");
                     this.vacantes-=1;
-                }
-                if(aux.contentEquals("si")==false) {
-                    System.out.println("entendido postulacion cancelada");
+					return;
                 }
             }
         }
+        //en caso de no poseer el titulo nesesario para el trabajo se manda el siguiente mensaje
         else {
             System.out.println("No posees el titulo nesesario para postular a este trabajo");
+            return;
         }
 
     }

@@ -5,19 +5,18 @@ import java.util.Scanner;
 import java.io.IOException;
 public class main {
 	
-	
 	private static HashMap<String,Usuario> mapaUsuarios = new HashMap<String, Usuario>();
 	private static HashMap<String, Trabajo> mapaTrabajos = new HashMap<String, Trabajo>();
 	
 	
+	
 	public static void main(String[] arg) throws IOException{
-
+		
 		int ingresado; // Variable que se va modificando para la visualizacion del menu
 		Scanner input = new Scanner(System.in);
-		String nombre=null;
 		String respuesta;
 		Usuario a = null;
-		
+		Trabajo aux;
 		// Seccion Lectura CSV
 		CSV archivo = new CSV();
 		archivo.leerArchivo(System.getProperty("user.dir") + "\\src\\Archivos\\Trabajos.csv",mapaTrabajos);
@@ -56,7 +55,7 @@ public class main {
 		            System.out.println("2. Trabajos recomendados");
 		            System.out.println("3. Trabajos a los que postulaste");
 		            System.out.println("4. Trabajos cercanos a tu ubicación");
-
+		            System.out.println("5. Mostrar postulantes de un trabajo");
 		            ingresado = Integer.parseInt(input.nextLine());
 
 		            switch (ingresado) {
@@ -71,9 +70,10 @@ public class main {
 		                    System.out.println("Le gustaria postular a algun trabajo (si/no)");
 
 		                    if (input.nextLine().equals("si")) {
+		                    	System.out.println("Ingrese el nombre del trabajo al cual desea postular:");
 		                        String n = input.nextLine();
-		                        mapaTrabajos.get(n).manipularPostulantes(mapaUsuarios.get(nombre));
-		                        mapaTrabajos.get(n).Mostrar_postulantes();
+		                        mapaTrabajos.get(n).manipularPostulantes(mapaUsuarios.get(a.getNombre()));
+		                       
 		                    }
 
 		                    System.out.println("¿Te gustaría volver al menu principal? (si/no)");
@@ -96,14 +96,14 @@ public class main {
 		                    System.out.println("ESTOS SON LOS TRABAJOS A LOS QUE HAS POSTULADO");
 
 		                    for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
-		                        entry.getValue().buscarPostulante(nombre);
+		                        entry.getValue().buscarPostulante(a.getNombre());
 		                    }
 
 		                    System.out.println("¿Desea eliminar alguna postulacion? (si/no)");
 
 		                    if (input.nextLine().equals("si")) {
 		                        System.out.println("Ingrese el nombre del trabajo del cual quiere remover su postulacion");
-		                        mapaTrabajos.get(input.nextLine()).manipularPostulantes(nombre);
+		                        mapaTrabajos.get(input.nextLine()).manipularPostulantes(a.getNombre());
 		                    }
 
 		                    break;
@@ -112,7 +112,11 @@ public class main {
 		                    System.out.println("Se muestan todos los trabajos cercanos");
 		                    mostrarTrabajo(a.getUbicacion(), mapaTrabajos);
 		                    break;
-
+		                
+		                case 5:
+		                	System.out.println("ingrese el nombre del trabajo");
+		                	String n = input.nextLine();
+		                	mapaTrabajos.get(n).Mostrar_postulantes();
 		                default:
 		                    System.out.println("Opción inválida");
 		                    break;
@@ -121,7 +125,8 @@ public class main {
 		            break;
 
 		        case 2:
-		            crear(input, mapaTrabajos);
+		            aux=crear(input);
+		            mapaTrabajos.put(aux.getNombre(),aux);
 		            break;
 
 		        case 0:
@@ -155,7 +160,7 @@ public class main {
 	}
 	
 // Crea Trabajo
-	private static void crear(Scanner input, HashMap<String,Trabajo> aux) {
+	private static Trabajo crear(Scanner input) {
 
         Trabajo auxTrabajo = new Trabajo();
         String a;
@@ -191,7 +196,7 @@ public class main {
         }
         System.out.println("Ingrese el número de vacantes:");
         auxTrabajo.setSueldo(Integer.parseInt(input.nextLine()));
-        aux.put(key,auxTrabajo);
+        return auxTrabajo;
 
 
     }
