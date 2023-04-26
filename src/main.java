@@ -116,7 +116,7 @@ public class main {
 		                case 5:
 		                	System.out.println("ingrese el nombre del trabajo");
 		                	String n = input.nextLine();
-		                	mapaTrabajos.get(n).Mostrar_postulantes();
+		                	mapaTrabajos.get(n).mostrarPostulantes();
 		                default:
 		                    System.out.println("Opción inválida");
 		                    break;

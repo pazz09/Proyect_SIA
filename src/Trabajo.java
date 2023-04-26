@@ -184,9 +184,49 @@ public class Trabajo {
 		}
 		
 	}
-	
-	
-	
-	
-	
+	public void editarPostulacion(String nombre, String b) {
+		
+			Scanner input = new Scanner(System.in);
+	        for (int i = 0; i < this.listPostulantes.size(); i++) {
+	            if (this.listPostulantes.get(i).getNombre().contentEquals(nombre)) {
+	            	switch(b) {
+		                case "nombre":
+		                    System.out.println("Ingrese el nuevo valor de la variable 'nombre': ");
+		                    listPostulantes.get(i).setNombre(input.nextLine());
+		                    break;
+		                case "edad":
+		                    System.out.println("Ingrese el nuevo valor de la variable 'edad': ");
+		                    listPostulantes.get(i).setEdad(input.nextInt());
+		                    break;
+		                case "clave":
+		                    System.out.println("Ingrese el nuevo valor de la variable 'clave': ");
+		                    listPostulantes.get(i).setClave(input.nextLine());
+		                    break;
+		                case "rut":
+		                    System.out.println("Ingrese el nuevo valor de la variable 'rut': ");
+		                    listPostulantes.get(i).setRut(input.nextLine());
+		                    break;
+		                case "ubicacion":
+		                    System.out.println("Ingrese el nuevo valor de la variable 'ubicacion': ");
+		                    listPostulantes.get(i).setUbicacion(input.nextLine());
+		                    break;
+		                case "titulo":
+		                    System.out.println("Ingrese el nuevo valor de la variable 'titulo': ");
+		                    listPostulantes.get(i).setTitulo(input.nextLine());
+		                    break;
+		                case "exp":
+		                    System.out.println("Ingrese el nuevo valor de la variable 'exp': ");
+		                    listPostulantes.get(i).setExp(input.nextInt());
+		                    break;
+		                case "sueldo":
+		                    System.out.println("Ingrese el nuevo valor de la variable 'sueldo': ");
+		                    listPostulantes.get(i).setSueldo(input.nextInt());
+		                    break;
+		                default:
+		                    System.out.println("Variable no encontrada");
+		                    break;
+	            	}
+	            }
+	        }
+	}
 }
