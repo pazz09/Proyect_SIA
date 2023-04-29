@@ -10,7 +10,7 @@ public class main {
 	
 	
 	
-	public static void main(String[] arg) throws IOException{
+	public static void main(String[] arg) throws IOException, UsuarioException{
 		
 		int ingresado; // Variable que se va modificando para la visualizacion del menu
 		Scanner input = new Scanner(System.in);
@@ -218,7 +218,7 @@ public class main {
     }
 
 	
-	private static Usuario iniciarSesion(Scanner input) {
+	private static Usuario iniciarSesion(Scanner input) throws UsuarioException {
 	    String aux;
 	    Usuario auxUsuario = new Usuario();
 	    System.out.println("Ingrese nombre de usuario: ");

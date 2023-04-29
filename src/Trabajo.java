@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.HashMap;
+
 
 public class Trabajo {
 	
@@ -86,9 +86,7 @@ public class Trabajo {
 
 
 	public void manipularPostulantes(Usuario a) {
-	    try {
-	        Scanner input = new Scanner(System.in);
-
+	    try { 
 	        // Se comprueba que existan vacantes disponibles
 	        if (this.vacantes <= 0) {
 	            System.out.println("No hay vacantes disponibles");
@@ -170,7 +168,7 @@ public class Trabajo {
 		}
 		
 	}
-	public void editarPostulacion(String nombre, String b) {
+	public void editarPostulacion(String nombre, String b) throws UsuarioException {
 	    Scanner input = new Scanner(System.in);
 	    for (int i = 0; i < this.listPostulantes.size(); i++) {
 	        if (this.listPostulantes.get(i).getNombre().contentEquals(nombre)) {

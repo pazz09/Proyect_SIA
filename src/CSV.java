@@ -62,7 +62,7 @@ public class CSV {
 	}
 	
 
-	public void imprimirLinea1(HashMap<String,Usuario> mapaUsuarios){
+	public void imprimirLinea1(HashMap<String,Usuario> mapaUsuarios) throws  UsuarioException{
 		Usuario obj = new Usuario();
 		obj.setNombre(partes[0]);
 		obj.setEdad(Integer.parseInt(partes[1]));
