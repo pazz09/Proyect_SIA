@@ -86,68 +86,54 @@ public class Trabajo {
 
 
 	public void manipularPostulantes(Usuario a) {
-	    Scanner input = new Scanner(System.in);
 	    try {
-	        //Se comprueba que existan vacantes disponibles
+	        Scanner input = new Scanner(System.in);
+
+	        // Se comprueba que existan vacantes disponibles
 	        if (this.vacantes <= 0) {
 	            System.out.println("No hay vacantes disponibles");
 	            return;
 	        }
 
-	        //En caso de existir vacantes se comprueba la experiencia necesaria
-
-	        //este if comprueba si no se requiere titulo
-	        if (this.titulo == null || this.titulo.equals("No posee")) {
-	            // comprueba si se requiere experiencia 
-	            if (a.getExp() >= this.exp || this.exp == 0) {
-	                this.listPostulantes.add(a);
-	                System.out.println("Postulacion exitosa");
-	                this.vacantes--;
-	                return;
-	            } else {
-	                System.out.println("No posees la experiencia requerida ¿Aun quieres continuar? (si/no)");
-	                String aux = input.nextLine();
-	                if (aux.equals("si")) {
-	                    this.listPostulantes.add(a);
-	                    System.out.println("Postulacion exitosa");
-	                    this.vacantes--;
-	                    return;
-	                } else {
-	                    System.out.println("Postulacion cancelada");
-	                    return;
-	                }
-	            }
-	        }
-	        //Comprueba si se posee el titulo necesario
-	        if (a.getTitulo().contentEquals(this.titulo)) {
-	            if (a.getExp() >= this.exp) {
-	                this.listPostulantes.add(a);
-	                System.out.println("Postulacion exitosa");
-	                this.vacantes -= 1;
-	                return;
-	            } else {
-	                System.out.println("No posees la experiencia requerida ¿Aun quieres continuar? (si/no)");
-	                String aux = input.nextLine();
-	                if (aux.equals("si")) {
-	                    this.listPostulantes.add(a);
-	                    System.out.println("Postulacion exitosa");
-	                    this.vacantes--;
-	                    return;
-	                } else {
-	                    System.out.println("Postulacion cancelada");
-	                    return;
-	                }
-	            }
-	        }
-	        //en caso de no poseer el titulo necesario para el trabajo se manda el siguiente mensaje
-	        else {
-	            System.out.println("No posees el titulo necesario para postular a este trabajo");
+	        // Se comprueba si se requiere título o experiencia
+	        if (!cumpleRequisitos(a)) {
+	            System.out.println("No cumples los requisitos para este trabajo");
 	            return;
 	        }
+
+	        // Se pide confirmación para postularse si no se cumple con la experiencia requerida
+	        if (this.titulo == null || this.titulo.equals("No posee")) {
+	            if (a.getExp() < this.exp) {
+	                if (!confirmarPostulacion()) {
+	                    System.out.println("Postulación cancelada");
+	                    return;
+	                }
+	            }
+	        }
+
+	        // Se agrega el usuario a la lista de postulantes y se decrementa la cantidad de vacantes
+	        this.listPostulantes.add(a);
+	        System.out.println("Postulación exitosa");
+	        this.vacantes--;
 	    } catch (Exception e) {
 	        System.out.println("Ha ocurrido un error: " + e.getMessage());
 	        e.printStackTrace();
 	    }
+	}
+
+	private boolean cumpleRequisitos(Usuario a) {
+	    if (this.titulo == null || this.titulo.equals("No posee")) {
+	        return a.getExp() >= this.exp || this.exp == 0;
+	    } else {
+	        return a.getTitulo().equals(this.titulo) && a.getExp() >= this.exp;
+	    }
+	}
+
+	private boolean confirmarPostulacion() {
+	    Scanner input = new Scanner(System.in);
+	    System.out.println("No posees la experiencia requerida ¿Aún quieres continuar? (si/no)");
+	    String respuesta = input.nextLine();
+	    return respuesta.equalsIgnoreCase("si");
 	}
 	public void manipularPostulantes(String nombre) {
 	    try {
@@ -185,48 +171,55 @@ public class Trabajo {
 		
 	}
 	public void editarPostulacion(String nombre, String b) {
-		
-			Scanner input = new Scanner(System.in);
-	        for (int i = 0; i < this.listPostulantes.size(); i++) {
-	            if (this.listPostulantes.get(i).getNombre().contentEquals(nombre)) {
-	            	switch(b) {
-		                case "nombre":
-		                    System.out.println("Ingrese el nuevo valor de la variable 'nombre': ");
-		                    listPostulantes.get(i).setNombre(input.nextLine());
-		                    break;
-		                case "edad":
-		                    System.out.println("Ingrese el nuevo valor de la variable 'edad': ");
-		                    listPostulantes.get(i).setEdad(input.nextInt());
-		                    break;
-		                case "clave":
-		                    System.out.println("Ingrese el nuevo valor de la variable 'clave': ");
-		                    listPostulantes.get(i).setClave(input.nextLine());
-		                    break;
-		                case "rut":
-		                    System.out.println("Ingrese el nuevo valor de la variable 'rut': ");
-		                    listPostulantes.get(i).setRut(input.nextLine());
-		                    break;
-		                case "ubicacion":
-		                    System.out.println("Ingrese el nuevo valor de la variable 'ubicacion': ");
-		                    listPostulantes.get(i).setUbicacion(input.nextLine());
-		                    break;
-		                case "titulo":
-		                    System.out.println("Ingrese el nuevo valor de la variable 'titulo': ");
-		                    listPostulantes.get(i).setTitulo(input.nextLine());
-		                    break;
-		                case "exp":
-		                    System.out.println("Ingrese el nuevo valor de la variable 'exp': ");
-		                    listPostulantes.get(i).setExp(input.nextInt());
-		                    break;
-		                case "sueldo":
-		                    System.out.println("Ingrese el nuevo valor de la variable 'sueldo': ");
-		                    listPostulantes.get(i).setSueldo(input.nextInt());
-		                    break;
-		                default:
-		                    System.out.println("Variable no encontrada");
-		                    break;
-	            	}
+	    Scanner input = new Scanner(System.in);
+	    for (int i = 0; i < this.listPostulantes.size(); i++) {
+	        if (this.listPostulantes.get(i).getNombre().contentEquals(nombre)) {
+	            switch(b) {
+	                case "nombre":
+	                    System.out.println("Ingrese el nuevo valor de la variable 'nombre': ");
+	                    listPostulantes.get(i).setNombre(input.nextLine());
+	                    System.out.println("Cambio realizado con exito");
+	                    break;
+	                case "edad":
+	                    System.out.println("Ingrese el nuevo valor de la variable 'edad': ");
+	                    listPostulantes.get(i).setEdad(Integer.parseInt(input.nextLine()));
+	                    System.out.println("Cambio realizado con exito");
+	                    break;
+	                case "clave":
+	                    System.out.println("Ingrese el nuevo valor de la variable 'clave': ");
+	                    listPostulantes.get(i).setClave(input.nextLine());
+	                    System.out.println("Cambio realizado con exito");
+	                    break;
+	                case "rut":
+	                    System.out.println("Ingrese el nuevo valor de la variable 'rut': ");
+	                    listPostulantes.get(i).setRut(input.nextLine());
+	                    System.out.println("Cambio realizado con exito");
+	                    break;
+	                case "ubicacion":
+	                    System.out.println("Ingrese el nuevo valor de la variable 'ubicacion': ");
+	                    listPostulantes.get(i).setUbicacion(input.nextLine());
+	                    System.out.println("Cambio realizado con exito");
+	                    break;
+	                case "titulo":
+	                    System.out.println("Ingrese el nuevo valor de la variable 'titulo': ");
+	                    listPostulantes.get(i).setTitulo(input.nextLine());
+	                    System.out.println("Cambio realizado con exito");
+	                    break;
+	                case "exp":
+	                    System.out.println("Ingrese el nuevo valor de la variable 'exp': ");
+	                    listPostulantes.get(i).setExp(input.nextInt());
+	                    System.out.println("Cambio realizado con exito");
+	                    break;
+	                case "sueldo":
+	                    System.out.println("Ingrese el nuevo valor de la variable 'sueldo': ");
+	                    listPostulantes.get(i).setSueldo(input.nextInt());
+	                    System.out.println("Cambio realizado con exito");
+	                    break;
+	                default:
+	                    System.out.println("Variable no encontrada");
+	                    break;
 	            }
 	        }
+	    }
 	}
 }
