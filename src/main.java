@@ -10,7 +10,7 @@ public class main {
 	
 	
 	
-	public static void main(String[] arg) throws IOException, UsuarioException{
+	public static void main(String[] arg) throws IOException, UsuarioException, TrabajoException{
 		
 		
 		Ventana1 window = new Ventana1();

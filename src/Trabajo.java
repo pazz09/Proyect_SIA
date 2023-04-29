@@ -85,26 +85,23 @@ public class Trabajo {
 	}
 
 
-	public void manipularPostulantes(Usuario a) {
-	    try { 
+	public void manipularPostulantes(Usuario a) throws TrabajoException {
+	    try {
 	        // Se comprueba que existan vacantes disponibles
 	        if (this.vacantes <= 0) {
-	            System.out.println("No hay vacantes disponibles");
-	            return;
+	            throw new TrabajoException("No hay vacantes disponibles");
 	        }
 
 	        // Se comprueba si se requiere título o experiencia
 	        if (!cumpleRequisitos(a)) {
-	            System.out.println("No cumples los requisitos para este trabajo");
-	            return;
+	            throw new TrabajoException("No cumples los requisitos para este trabajo");
 	        }
 
 	        // Se pide confirmación para postularse si no se cumple con la experiencia requerida
 	        if (this.titulo == null || this.titulo.equals("No posee")) {
 	            if (a.getExp() < this.exp) {
 	                if (!confirmarPostulacion()) {
-	                    System.out.println("Postulación cancelada");
-	                    return;
+	                    throw new TrabajoException("Postulación cancelada");
 	                }
 	            }
 	        }
@@ -113,6 +110,9 @@ public class Trabajo {
 	        this.listPostulantes.add(a);
 	        System.out.println("Postulación exitosa");
 	        this.vacantes--;
+	    } catch (TrabajoException e) {
+	        System.out.println(e.getMessage());
+	        throw e;
 	    } catch (Exception e) {
 	        System.out.println("Ha ocurrido un error: " + e.getMessage());
 	        e.printStackTrace();
@@ -170,6 +170,7 @@ public class Trabajo {
 	}
 	public void editarPostulacion(String nombre, String b) throws UsuarioException {
 	    Scanner input = new Scanner(System.in);
+	    
 	    for (int i = 0; i < this.listPostulantes.size(); i++) {
 	        if (this.listPostulantes.get(i).getNombre().contentEquals(nombre)) {
 	            switch(b) {
