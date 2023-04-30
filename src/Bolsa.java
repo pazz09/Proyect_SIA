@@ -151,12 +151,20 @@ public class Bolsa {
 		if (cont == 0) System.out.println("No se ha encontrado ningun trabajo que coincida con tus datos");
 	}
 	
-	public void mostrarTrabajos() {
+	public void mostrarTrabajos(Scanner input, Usuario usuario) throws TrabajoException {
 		int i = 0;
 		for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
             System.out.println("Trabajo n° " + i + ":");
             entry.getValue().mostrarTrabajo();
             i++;
+        }
+		System.out.println("Le gustaria postular a algun trabajo (si/no)");
+
+        if (input.nextLine().equals("si")) {
+        	System.out.println("Ingrese el nombre del trabajo al cual desea postular:");
+            String n = input.nextLine();
+            mapaTrabajos.get(n).manipularPostulantes(mapaUsuarios.get(usuario.getNombre()));
+           
         }
 		
 	}
@@ -193,6 +201,14 @@ public class Bolsa {
 	public void mostrarPostulantes(Scanner input) {
 		String nombreTrabajo = input.nextLine();
 		mapaTrabajos.get(nombreTrabajo).mostrarPostulantes();
+	}
+	public void editarPostulantes(Scanner input, Usuario usuario) throws UsuarioException {
+		mostrarTrabajosPustulados(usuario, input);
+		System.out.println("Ingrese el nombre del trabajo");
+        String auxN= input.nextLine();
+        System.out.println("Ingrese el nombre de la variable a modificar");
+        String auxV= input.nextLine();
+    	mapaTrabajos.get(auxN).editarPostulacion(usuario.getNombre(),auxV );
 	}
 	
 	

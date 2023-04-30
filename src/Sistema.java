@@ -48,7 +48,7 @@ public class Sistema {
 		            
 		            switch (ingresado) {
 		            case 1: //motrar trabajos disponibles
-		            	bolsa.mostrarTrabajos();
+		            	bolsa.mostrarTrabajos(input, usuario);
 		            	break;
 		            case 2: //mostrar trabajos recomendados
 		            	bolsa.mostrarTrabajo(usuario);
@@ -63,7 +63,7 @@ public class Sistema {
 		            	bolsa.mostrarPostulantes(input);
 		            	break;
 		            case 6: //Editar datos de los pustulantes??
-		            	
+		            	bolsa.editarPostulantes(input, usuario);
 		            	break;
 		            default:
 	                    System.out.println("Opción inválida");
