@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class Sistema {
 	public static void main(String[] arg) throws IOException, UsuarioException, TrabajoException{
 		
+		Ventana1 window = new Ventana1();
+		window.getFrame().setVisible(true);
+		
+		
 		int ingresado;
 		Scanner input = new Scanner(System.in);
 		Usuario usuario = null;
