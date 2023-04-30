@@ -218,7 +218,9 @@ public class Trabajo {
 	                    System.out.println("Variable no encontrada");
 	                    break;
 	            }
+	            return;
 	        }
 	    }
+	    throw new UsuarioException("El nombre de usuario no existe en la lista de postulantes.");
 	}
 }
