@@ -15,7 +15,7 @@ public class Ventana1 {
 
 	private JFrame frmBolsaDeTrabajo;
 	public JTextField textFieldUsuario;
-    public JTextField textFieldPassword;
+    public JTextField textFieldContraseña;
 
 	/**
 	 * Launch the application.
@@ -65,10 +65,10 @@ public class Ventana1 {
         lblPassword.setBounds(200, 100, 76, 15);
         frmBolsaDeTrabajo.getContentPane().add(lblPassword);
 
-        textFieldPassword = new JTextField();
-        textFieldPassword.setBounds(284, 98, 129, 19);
-        frmBolsaDeTrabajo.getContentPane().add(textFieldPassword);
-        textFieldPassword.setColumns(10);
+        textFieldContraseña = new JTextField();
+        textFieldContraseña.setBounds(284, 98, 129, 19);
+        frmBolsaDeTrabajo.getContentPane().add(textFieldContraseña);
+        textFieldContraseña.setColumns(10);
         
         
         JButton btnIniciarSesion = new JButton("INICIAR");
