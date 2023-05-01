@@ -58,48 +58,48 @@ public class VentanaUsuario {
 		panel.setLayout(null);
 		
 		JLabel lblUsuario = new JLabel("Nombre de usuario:");
-		lblUsuario.setBounds(28, 24, 119, 14);
+		lblUsuario.setBounds(87, 24, 119, 14);
 		panel.add(lblUsuario);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(157, 21, 177, 20);
+		txtUsuario.setBounds(205, 22, 177, 20);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Contraseña:");
-		lblPassword.setBounds(28, 49, 77, 14);
+		lblPassword.setBounds(87, 54, 77, 14);
 		panel.add(lblPassword);
 		
 		txtPassword = new JPasswordField();
-		txtPassword.setBounds(157, 46, 177, 20);
+		txtPassword.setBounds(205, 52, 177, 20);
 		panel.add(txtPassword);
 		
 		JLabel lblEdades = new JLabel("Edades:");
-		lblEdades.setBounds(28, 77, 46, 14);
+		lblEdades.setBounds(87, 84, 46, 14);
 		panel.add(lblEdades);
 		
 		txtEdad = new JTextField();
-		txtEdad.setBounds(157, 96, 177, 20);
+		txtEdad.setBounds(205, 112, 177, 20);
 		panel.add(txtEdad);
 		txtEdad.setColumns(10);
 		
 		
 		JLabel lblRut = new JLabel("Rut:");
-		lblRut.setBounds(28, 99, 46, 14);
+		lblRut.setBounds(87, 114, 46, 14);
 		panel.add(lblRut);
 		
 		txtRut = new JTextField();
-		txtRut.setBounds(157, 96, 177, 20);
+		txtRut.setBounds(205, 142, 177, 20);
 		panel.add(txtRut);
 		txtRut.setColumns(10);
 		
 		JLabel lblRegion = new JLabel("Región:");
-		lblRegion.setBounds(28, 124, 46, 14);
+		lblRegion.setBounds(87, 178, 46, 14);
 		panel.add(lblRegion);
 
 		
 		comboRegion = new JComboBox<String>();
-		comboRegion.setBounds(157, 121, 177, 20);
+		comboRegion.setBounds(205, 175, 177, 20);
 		comboRegion.setModel(new DefaultComboBoxModel<String>(
 		        new String[] { "Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", "Coquimbo", "Valparaíso",
 		                "Metropolitana de Santiago", "Libertador General Bernardo O'Higgins", "Maule", "Ñuble", "Biobío", "Araucanía", "Los Ríos", "Los Lagos", "Aysén del General Carlos Ibáñez del Campo", "Magallanes y de la Antártica Chilena" }
@@ -107,7 +107,7 @@ public class VentanaUsuario {
 		panel.add(comboRegion);
 		
 		textField = new JTextField();
-		textField.setBounds(157, 71, 177, 20);
+		textField.setBounds(205, 82, 177, 20);
 		panel.add(textField);
 		textField.setColumns(10);
 	}

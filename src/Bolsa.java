@@ -14,6 +14,21 @@ public class Bolsa {
 		
 	}
 	
+	public static boolean iniciarSesion(String nombre, String contraseña) {
+        Usuario a = null;
+        a = mapaUsuarios.get(nombre);
+
+        if (a == null) {
+            return false;
+        }else {
+            if (a.getClave().equals(contraseña)) {
+                return true;
+            }else return false;
+        }
+
+    }
+	
+
 	public static boolean existe(String nombre) {
 		Usuario a = null;
 		a = mapaUsuarios.get(nombre);

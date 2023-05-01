@@ -78,14 +78,27 @@ public class Ventana1 {
         
         btnIniciarSesion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	
+            	Bolsa bolsa = new Bolsa();
+            	bolsa.IniciaBolsa();
+            	
+            	if(bolsa.iniciarSesion(textFieldUsuario.getText(), textFieldContraseña.getText())) {
+                    // Crea una instancia de la ventana del menú principal
+                    VentanaMenu ventanaMenu = new VentanaMenu();
+                    ventanaMenu.getFrame().setVisible(true);
+                }
+            	
+            	
+            	
+            	
                 // Crea una instancia de la ventana del menú principal
-                VentanaMenu ventanaMenu = new VentanaMenu();
+                //VentanaMenu ventanaMenu = new VentanaMenu();
 
                 // Hace que la ventana actual se oculte
-                frmBolsaDeTrabajo.setVisible(false);
+                //frmBolsaDeTrabajo.setVisible(false);
 
                 // Muestra la ventana del menú principal
-                ventanaMenu.getFrame().setVisible(true);
+                //ventanaMenu.getFrame().setVisible(true);
             }
         });
 
