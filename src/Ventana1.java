@@ -69,12 +69,28 @@ public class Ventana1 {
         textFieldContraseña.setBounds(284, 98, 129, 19);
         frmBolsaDeTrabajo.getContentPane().add(textFieldContraseña);
         textFieldContraseña.setColumns(10);
+     
+        JPanel panel = new JPanel();
+        panel.setBounds(0, 0, 450, 300);
+        frmBolsaDeTrabajo.getContentPane().add(panel);
+        
+        
+        JButton btnNewButton = new JButton("REGISTRARTE");
+        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 9));
+        btnNewButton.setBounds(201, 153, 108, 25);
+        panel.add(btnNewButton);
         
         
         JButton btnIniciarSesion = new JButton("INICIAR");
+        btnIniciarSesion.setFont(new Font("Tahoma", Font.BOLD, 9));
+        btnIniciarSesion.setBounds(319, 153, 109, 25);
+        panel.add(btnIniciarSesion);
         
-        btnIniciarSesion.setBounds(299, 153, 95, 25);
-        frmBolsaDeTrabajo.getContentPane().add(btnIniciarSesion);
+        JLabel lblNewLabel = new JLabel("!BIENVENIDO!");
+        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lblNewLabel.setBounds(285, 10, 101, 19);
+        panel.add(lblNewLabel);
+        
         
         btnIniciarSesion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -102,18 +118,21 @@ public class Ventana1 {
             }
         });
 
-        
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBounds(0, 0, 450, 300);
-        frmBolsaDeTrabajo.getContentPane().add(panel);
 
         // Agrega una etiqueta con la imagen de fondo
         ImageIcon imageIcon = new ImageIcon("src/Archivos/fondoInicio1.jpg");
         Image image = imageIcon.getImage();
         Image modifiedImage = image.getScaledInstance(panel.getWidth(), panel.getHeight(), java.awt.Image.SCALE_SMOOTH);
         ImageIcon modifiedImageIcon = new ImageIcon(modifiedImage);
+        panel.setLayout(null);
+        
         JLabel label = new JLabel(modifiedImageIcon);
-        panel.add(label, BorderLayout.CENTER);
+        label.setBounds(0, 0, 450, 300);
+        panel.add(label);
+        
+        
+        
+      
 		
 	}
 
