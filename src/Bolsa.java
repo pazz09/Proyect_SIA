@@ -28,6 +28,7 @@ public class Bolsa {
 
     }
 	
+	
 
 	public static boolean existe(String nombre) {
 		Usuario a = null;
@@ -147,7 +148,7 @@ public class Bolsa {
 	}
 	
 	
-	public void mostrarTrabajo(Usuario usuario) {
+	public void mostrarTrabajos(Usuario usuario) {
 		Trabajo trabajo= new Trabajo();
 		int cont = 0;
 		for (Map.Entry<String, Trabajo> entry : mapaTrabajos.entrySet()) {
