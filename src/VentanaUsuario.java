@@ -28,7 +28,9 @@ public class VentanaUsuario {
 	private JTextField txtProfesion;
 	private JTextField txtTitulo ;
 	private JLabel lblTitulo;
-	private JTextField textField;
+	private JTextField textNombreT;
+	private JTextField textyears;
+	private JTextField textSueldo;
 	
 	
 
@@ -69,52 +71,52 @@ public class VentanaUsuario {
 		panel.setLayout(null);
 		
 		JLabel lblUsuario = new JLabel("Nombre de usuario:");
-		lblUsuario.setBounds(76, 23, 119, 14);
+		lblUsuario.setBounds(76, 10, 119, 14);
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel.add(lblUsuario);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(205, 22, 177, 20);
+		txtUsuario.setBounds(205, 9, 177, 20);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Contraseña:");
-		lblPassword.setBounds(120, 53, 77, 14);
+		lblPassword.setBounds(119, 34, 77, 14);
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel.add(lblPassword);
 		
 		txtPassword = new JPasswordField();
-		txtPassword.setBounds(205, 52, 177, 20);
+		txtPassword.setBounds(205, 33, 177, 20);
 		panel.add(txtPassword);
 		
 		JLabel lblEdades = new JLabel("Edad:");
-		lblEdades.setBounds(161, 77, 46, 26);
+		lblEdades.setBounds(161, 50, 46, 26);
 		lblEdades.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel.add(lblEdades);
 		
 		txtEdad= new JTextField();
-		txtEdad.setBounds(205, 82, 177, 20);
+		txtEdad.setBounds(205, 55, 177, 20);
 		panel.add(txtEdad);
 		txtEdad.setColumns(10);
 			
 		JLabel lblRut = new JLabel("Rut:");
-		lblRut.setBounds(161, 107, 56, 26);
+		lblRut.setBounds(161, 73, 56, 26);
 		lblRut.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel.add(lblRut);
 		
 		txtRut = new JTextField();
-		txtRut.setBounds(205, 112, 177, 20);
+		txtRut.setBounds(205, 78, 177, 20);
 		panel.add(txtRut);
 		txtRut.setColumns(10);
 		
 		JLabel lblRegion = new JLabel("Región:");
-		lblRegion.setBounds(148, 136, 77, 31);
+		lblRegion.setBounds(150, 101, 77, 31);
 		lblRegion.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel.add(lblRegion);
 
 		
 		comboRegion = new JComboBox<String>();
-		comboRegion.setBounds(205, 142, 177, 20);
+		comboRegion.setBounds(205, 107, 177, 20);
 		comboRegion.setModel(new DefaultComboBoxModel<String>(
 		        new String[] { "Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", "Coquimbo", "Valparaíso",
 		                "Metropolitana de Santiago", "Libertador General Bernardo O'Higgins", "Maule", "Ñuble", "Biobío", "Araucanía", "Los Ríos", "Los Lagos", "Aysén del General Carlos Ibáñez del Campo", "Magallanes y de la Antártica Chilena" }
@@ -123,57 +125,61 @@ public class VentanaUsuario {
 		
 
 		lblTitulo = new JLabel("¿Posee un Título Profesional?");
-		lblTitulo.setBounds(16, 176, 191, 18);
+		lblTitulo.setBounds(16, 133, 191, 18);
 		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel.add(lblTitulo);
 		
 		JRadioButton rdbtnTitulo = new JRadioButton("SI");
-		rdbtnTitulo.setBounds(205, 176, 56, 21);
+		rdbtnTitulo.setBounds(205, 133, 56, 21);
 		panel.add(rdbtnTitulo);
 		
 		JRadioButton rdbtnTitulo_1 = new JRadioButton("NO");
-		rdbtnTitulo_1.setBounds(277, 176, 56, 21);
+		rdbtnTitulo_1.setBounds(266, 133, 56, 21);
 		panel.add(rdbtnTitulo_1);
 		
 		JLabel lblNombreT = new JLabel("Nombre de la Profesion:");
-		lblNombreT.setBounds(47, 215, 162, 13);
+		lblNombreT.setBounds(51, 161, 162, 13);
         lblNombreT.setFont(new Font("Tahoma", Font.BOLD, 12));
         panel.add(lblNombreT);
         
-        textField = new JTextField();
-        textField.setBounds(205, 213, 177, 19);
-        panel.add(textField);
-        textField.setColumns(10);
+        textNombreT = new JTextField();
+        textNombreT.setBounds(205, 161, 177, 19);
+        panel.add(textNombreT);
+        textNombreT.setColumns(10);
         
-        JButton btnSiguiente = new JButton("Siguiente");
-        btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 9));
-        btnSiguiente.setBounds(234, 242, 100, 15);
-        panel.add(btnSiguiente);
-		
-        btnSiguiente.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		
-        		VentanaUsuario2 ventanaUsuario2 = new VentanaUsuario2();
-
-                // Hace que la ventana actual se oculte
-                frame.setVisible(false);
-
-                // Muestra la ventana del menú principal
-                ventanaUsuario2.getFrame().setVisible(true);
-        	}
-        });
+        JLabel lblyears = new JLabel("Años de experiencia:");
+        lblyears.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lblyears.setBounds(61, 186, 143, 13);
+        panel.add(lblyears);
+        
+        textyears = new JTextField();
+        textyears.setBounds(205, 184, 177, 19);
+        panel.add(textyears);
+        textyears.setColumns(10);
+        
+        JLabel lblSueldo = new JLabel("Sueldo mínimo aceptado:");
+        lblSueldo.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lblSueldo.setBounds(35, 208, 161, 13);
+        panel.add(lblSueldo);
         
         
+        textSueldo = new JTextField();
+        textSueldo.setBounds(205, 206, 177, 19);
+        panel.add(textSueldo);
+        textSueldo.setColumns(10);
         
-        
-        
-        
-        
-        
-        
+        JButton btnNewButton = new JButton("Finalizar");
+        btnNewButton.setBounds(176, 232, 85, 21);
+        panel.add(btnNewButton);
         
         
 
+        
+
+        
+        
+        
+        
 		// Agrega una etiqueta con la imagen de fondo
         ImageIcon imageIcon = new ImageIcon("src/Archivos/fondoUsuario2.jpg");
         Image image = imageIcon.getImage();
@@ -181,12 +187,10 @@ public class VentanaUsuario {
         ImageIcon modifiedImageIcon = new ImageIcon(modifiedImage);
         panel.setLayout(null);
         JLabel label = new JLabel(modifiedImageIcon);
-        label.setBounds(0, 0, 440, 272);
+        label.setBounds(0, -19, 440, 295);
+        label.setFont(new Font("Tahoma", Font.BOLD, 10));
         panel.add(label);
         
-        
-       
-		
 
 		
 	}

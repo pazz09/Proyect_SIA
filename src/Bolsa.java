@@ -14,6 +14,22 @@ public class Bolsa {
 		
 	}
 	
+	public Usuario registrarse(String nombre,int edad,String clave,String rut,String ubicacion,String titulo,int exp,int sueldo) throws UsuarioException {
+        Usuario auxUsuario = new Usuario();
+        auxUsuario.setNombre(nombre);
+        auxUsuario.setEdad(edad);
+        auxUsuario.setClave(clave);
+        auxUsuario.setUbicacion(ubicacion);
+        auxUsuario.setTitulo(titulo);
+        auxUsuario.setExp(exp);
+        auxUsuario.setSueldo(sueldo);
+        mapaUsuarios.put(auxUsuario.getNombre(), auxUsuario);
+        return auxUsuario;
+
+    }
+	
+
+	
 	public static boolean iniciarSesion(String nombre, String contraseña) {
         Usuario a = null;
         a = mapaUsuarios.get(nombre);
