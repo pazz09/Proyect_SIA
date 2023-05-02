@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -172,6 +173,9 @@ public class VentanaUsuario extends Ventana1{
         JButton btnFinal = new JButton("Finalizar");
         btnFinal.setBounds(176, 232, 85, 21);
         panel.add(btnFinal);
+        
+
+        
 
         btnFinal.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -190,6 +194,10 @@ public class VentanaUsuario extends Ventana1{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+        	    
+
+        	    
+        	    
         	}
         });
         
