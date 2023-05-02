@@ -95,13 +95,6 @@ public class Ventana1 {
         panel.add(lblNewLabel);
 
         
-        /*
-        JButton btnIniciarSesion = new JButton("INICIAR");
-
-        btnIniciarSesion.setBounds(299, 153, 95, 25);
-        frmBolsaDeTrabajo.getContentPane().add(btnIniciarSesion);
-        */
-        
         btnIniciarSesion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	
@@ -117,17 +110,7 @@ public class Ventana1 {
             		JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecta");
             	}
             	
-            	
-            	
-            	
-                // Crea una instancia de la ventana del menú principal
-                //VentanaMenu ventanaMenu = new VentanaMenu();
 
-                // Hace que la ventana actual se oculte
-                //frmBolsaDeTrabajo.setVisible(false);
-
-                // Muestra la ventana del menú principal
-                //ventanaMenu.getFrame().setVisible(true);
             }
         });
         

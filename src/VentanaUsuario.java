@@ -31,6 +31,7 @@ public class VentanaUsuario {
 	private JTextField textNombreT;
 	private JTextField textyears;
 	private JTextField textSueldo;
+	private JButton closeButton;
 	
 	
 
@@ -168,18 +169,19 @@ public class VentanaUsuario {
         panel.add(textSueldo);
         textSueldo.setColumns(10);
         
-        JButton btnNewButton = new JButton("Finalizar");
-        btnNewButton.setBounds(176, 232, 85, 21);
-        panel.add(btnNewButton);
-        
+        JButton btnFinal = new JButton("Finalizar");
+        btnFinal.setBounds(176, 232, 85, 21);
+        panel.add(btnFinal);
+
+        btnFinal.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+
+        	}
+        });
         
 
-        
 
-        
-        
-        
-        
 		// Agrega una etiqueta con la imagen de fondo
         ImageIcon imageIcon = new ImageIcon("src/Archivos/fondoUsuario2.jpg");
         Image image = imageIcon.getImage();
