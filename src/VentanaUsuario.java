@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 
-public class VentanaUsuario {
+public class VentanaUsuario extends JFrame{
 
 	private JFrame frame;
 	private JTextField txtUsuario;
@@ -175,7 +175,7 @@ public class VentanaUsuario {
 
         btnFinal.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		dispose();
 
         	}
         });
