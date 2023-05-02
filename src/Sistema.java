@@ -51,7 +51,7 @@ public class Sistema {
 		            	bolsa.mostrarTrabajos(input, usuario);
 		            	break;
 		            case 2: //mostrar trabajos recomendados
-		            	bolsa.mostrarTrabajo(usuario);
+		            	bolsa.mostrarTrabajos(usuario);
 		            	break;
 		            case 3: //Trabajos a los que postulaste
 		            	bolsa.mostrarTrabajosPustulados(usuario,input);
