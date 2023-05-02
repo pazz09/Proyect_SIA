@@ -13,15 +13,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.Font;
 
 public class VentanaMenu {
 
 	private JFrame frame;
-	
+	private VentanaOpcion1 ventanaMenu;
 
-	/**
-	 * Launch the application.
-	 */
+	
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -56,10 +57,7 @@ public class VentanaMenu {
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, 450, 300);
         frame.getContentPane().add(panel);
-        
-        JButton btnAgregar = new JButton("Agregar Trabajo");
-        btnAgregar.setBounds(121, 94, 190, 21);
-        panel.add(btnAgregar);
+       
         
         // Crea los botones y los agrega al panel de botones
         JButton btnBuscar = new JButton("Buscar Trabajo");
@@ -67,35 +65,50 @@ public class VentanaMenu {
         panel.add(btnBuscar);
         
         
-        JButton btnEditar = new JButton("Editar Trabajo");
-        btnEditar.setBounds(121, 157, 190, 21);
-        panel.add(btnEditar);
+        JButton btnPublicar = new JButton("Publicar Trabajo");
+        btnPublicar.setBounds(121, 157, 190, 21);
+        panel.add(btnPublicar);
         
-        JButton btnEliminar = new JButton("Eliminar Trabajo");
-        btnEliminar.setBounds(121, 188, 190, 21);
-        panel.add(btnEliminar);
+
         
         JLabel lblNewLabel = new JLabel("MENÚ PRINCIPAL");
-        lblNewLabel.setBounds(169, 45, 134, 13);
+        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblNewLabel.setBounds(156, 71, 134, 13);
         panel.add(lblNewLabel);
-        btnEliminar.addActionListener(new ActionListener() {
+        
+        btnPublicar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		// Acciones a realizar cuando se presione el botón de eliminar
-        	}
-        });
-        btnEditar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		// Acciones a realizar cuando se presione el botón de editar
+
+        		VentanaOpcion2 ventanaOpcion2 = new VentanaOpcion2();
+
+                // Hace que la ventana actual se oculte
+                frame.setVisible(false);
+
+                // Muestra la ventana del menú principal
+                ventanaOpcion2.getFrame().setVisible(true);
+        		
+
+        		
+        		
         	}
         });
         btnBuscar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		// Acciones a realizar cuando se presione el botón de buscar
-        	}
-        });
-        btnAgregar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		// Acciones a realizar cuando se presione el botón de agregar
+
+        		 // Crea una instancia de la ventana del menú principal
+                VentanaOpcion1 ventanaOpcion1 = new VentanaOpcion1();
+
+                // Hace que la ventana actual se oculte
+                frame.setVisible(false);
+
+                // Muestra la ventana del menú principal
+                ventanaOpcion1.getFrame().setVisible(true);
+        		
+        		
+        		
+        		
+        		
+        		
         	}
         });
         

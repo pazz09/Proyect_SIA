@@ -75,10 +75,10 @@ public class Ventana1 {
         frmBolsaDeTrabajo.getContentPane().add(panel);
         
         
-        JButton btnNewButton = new JButton("REGISTRARTE");
-        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 9));
-        btnNewButton.setBounds(201, 153, 108, 25);
-        panel.add(btnNewButton);
+        JButton btnRegistro = new JButton("REGISTRARTE");
+        btnRegistro.setFont(new Font("Tahoma", Font.BOLD, 9));
+        btnRegistro.setBounds(201, 153, 108, 25);
+        panel.add(btnRegistro);
         
         
         JButton btnIniciarSesion = new JButton("INICIAR");
@@ -88,7 +88,7 @@ public class Ventana1 {
         
         JLabel lblNewLabel = new JLabel("!BIENVENIDO!");
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-        lblNewLabel.setBounds(285, 10, 101, 19);
+        lblNewLabel.setBounds(251, 10, 101, 19);
         panel.add(lblNewLabel);
         
         
@@ -117,7 +117,23 @@ public class Ventana1 {
                 //ventanaMenu.getFrame().setVisible(true);
             }
         });
+        
+        btnRegistro.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	
+            	VentanaUsuario ventanaUsuario = new VentanaUsuario();
 
+                // Hace que la ventana actual se oculte
+                frmBolsaDeTrabajo.setVisible(false);
+
+                // Muestra la ventana del menú principal
+                ventanaUsuario.getFrame().setVisible(true);
+            	
+            	
+            	
+            }
+        });
+        	
 
         // Agrega una etiqueta con la imagen de fondo
         ImageIcon imageIcon = new ImageIcon("src/Archivos/fondoInicio1.jpg");
