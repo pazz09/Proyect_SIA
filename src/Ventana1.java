@@ -17,6 +17,7 @@ public class Ventana1 {
 	private JFrame frmBolsaDeTrabajo;
 	public JTextField textFieldUsuario;
     public JTextField textFieldContraseña;
+    public Bolsa bolsaGlobal = new Bolsa();
 
 	/**
 	 * Launch the application.
@@ -97,11 +98,9 @@ public class Ventana1 {
         
         btnIniciarSesion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	bolsaGlobal.IniciaBolsa();
             	
-            	Bolsa bolsa = new Bolsa();
-            	bolsa.IniciaBolsa();
-            	
-            	if(bolsa.iniciarSesion(textFieldUsuario.getText(), textFieldContraseña.getText())) {
+            	if(bolsaGlobal.iniciarSesion(textFieldUsuario.getText(), textFieldContraseña.getText())) {
                     // Crea una instancia de la ventana del menú principal
                     VentanaMenu ventanaMenu = new VentanaMenu();
                     ventanaMenu.getFrame().setVisible(true);
@@ -118,11 +117,8 @@ public class Ventana1 {
             public void actionPerformed(ActionEvent e) {
             	
             	VentanaUsuario ventanaUsuario = new VentanaUsuario();
-
-
                 // Hace que la ventana actual se oculte
                 frmBolsaDeTrabajo.setVisible(false);
-
                 // Muestra la ventana del menú principal
                 ventanaUsuario.getFrame().setVisible(true);
             	

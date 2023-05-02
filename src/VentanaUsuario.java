@@ -17,11 +17,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 
-public class VentanaUsuario extends JFrame{
+public class VentanaUsuario extends Ventana1{
 
 	private JFrame frame;
 	private JTextField txtUsuario;
-	private JPasswordField txtPassword;
+	private JTextField txtPassword;
 	private JTextField txtEdad;
 	private JTextField txtRut;
 	private JComboBox<String> comboRegion;
@@ -86,7 +86,7 @@ public class VentanaUsuario extends JFrame{
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
 		panel.add(lblPassword);
 		
-		txtPassword = new JPasswordField();
+		txtPassword = new JTextField();
 		txtPassword.setBounds(205, 33, 177, 20);
 		panel.add(txtPassword);
 		
@@ -175,8 +175,21 @@ public class VentanaUsuario extends JFrame{
 
         btnFinal.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		dispose();
-
+        	    String nombre = txtUsuario.getText();
+        	    int edad = txtEdad.getComponentCount();
+        	    String clave = txtPassword.getText();
+        	    String rut =  txtRut.getText();
+        	    String ubicacion = comboRegion.getActionCommand();
+        	    String titulo = txtTitulo.getText();
+        	    int exp= (int) textyears.getComponentCount();
+        	    int sueldo = (int) textSueldo.getComponentCount();
+        	    
+        	    try {
+					bolsaGlobal.registrarse(nombre,edad,clave,rut,ubicacion,titulo,exp,sueldo);
+				} catch (UsuarioException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
         	}
         });
         
