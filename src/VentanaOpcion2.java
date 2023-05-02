@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class VentanaOpcion2 {
 
@@ -53,16 +54,18 @@ public class VentanaOpcion2 {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre del puesto a solicitar:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblNewLabel_1.setBounds(53, 41, 155, 13);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setBounds(233, 45, 96, 19);
+		textField.setBounds(210, 38, 96, 19);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Ubicación:");
-		lblNewLabel_2.setBounds(53, 84, 109, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblNewLabel_2.setBounds(117, 64, 77, 13);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		textField_1 = new JTextField();
