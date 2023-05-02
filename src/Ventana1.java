@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -112,6 +113,9 @@ public class Ventana1 {
                     VentanaMenu ventanaMenu = new VentanaMenu();
                     ventanaMenu.getFrame().setVisible(true);
                 }
+            	else {
+            		JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecta");
+            	}
             	
             	
             	
