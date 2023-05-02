@@ -85,7 +85,7 @@ public class Ventana1 {
         
         JButton btnIniciarSesion = new JButton("INICIAR");
         btnIniciarSesion.setFont(new Font("Tahoma", Font.BOLD, 9));
-        btnIniciarSesion.setBounds(341, 151, 69, 19);
+        btnIniciarSesion.setBounds(341, 151, 78, 19);
         panel.add(btnIniciarSesion);
         
         JLabel lblNewLabel = new JLabel("!BIENVENIDO!");
